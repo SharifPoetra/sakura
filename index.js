@@ -73,29 +73,10 @@ client.on('disconnect', () => console.log('I just disconnected, making sure you 
 client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 client.on('message', async msg => { // eslint-disable-line
-  
- /* //logging Dm to owner
-  if (msg.channel.type === "dm") {
-                let embed = new RichEmbed()
-                    .setTimestamp()
-                    .setTitle("Direct Message To The Bot")
-                    .addField(`Sent By:`, `<@${msg.author.id}> | ${msg.author.tag}`)
-                    .setColor("RANDOM")
-                    .setThumbnail(msg.author.displayAvatarURL)
-                    .addField(`Message:`, `${msg.content}`)
-                    .setFooter(`DM Bot Messages | DM Logs`)
-              client.users.get("444454206800396309").send(embed)
-            }*/
-  
+
   //prefix 
-  const prefixes = ['s!'];
-  let prefix = undefined;
-  for(const pred of prefixes){
-    if(msg.content.startsWith(pred)) prefix = pred;
-  }
-  let fetchedPrefix = await db.fetch(`serverPrefix_${msg.guild.id}`);
-  if (fetchedPrefix === null) fetchedPrefix = prefix;
-  else prefix = fetchedPrefix;
+  const prefix = ['s!'];
+  
   exports.prefix = prefix;
   
   if (!msg.guild) return;
@@ -172,7 +153,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			songs: [],
 			volume: 100,
 			playing: true,
-      loop: false
+                        loop: false
 		};
 		queue.set(msg.guild.id, queueConstruct);
 
@@ -210,7 +191,6 @@ var adedembed = new RichEmbed()
 
 function play(guild, song, msg) {
 	const serverQueue = queue.get(guild.id);
-
 	if (!song) {
 		serverQueue.voiceChannel.leave();
 		queue.delete(guild.id);
