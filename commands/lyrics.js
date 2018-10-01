@@ -78,7 +78,7 @@ exports.run = async (client, msg, args) => {
 }
 
 exports.conf = {
-  aliases: ['l'],
+  aliases: ['ly'],
   clientPerm: 'EMBED_LINKS',
   authorPerm: ''
 }
