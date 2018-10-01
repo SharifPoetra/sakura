@@ -4,7 +4,6 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const fs = require('fs')
 const { Canvas } = require('canvas-constructor');
-const db = require('quick.db');
 const path = require('path');
 const Botlister = require('botlister');
 
