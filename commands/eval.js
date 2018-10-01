@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+/* const Discord = require('discord.js');
 const snekfetch = require('node-superfetch');
 const db = require('quick.db')
 const { promisify } = require("util");
@@ -113,3 +113,4 @@ module.exports.run = async (client, message, args) => {
 exports.conf = {
    aliases: ['e']
 }
+*/
