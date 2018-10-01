@@ -72,7 +72,19 @@ client.on('reconnecting', () => console.log('I am reconnecting now!'));
 client.on('message', async msg => { // eslint-disable-line
 
   //prefix 
-  var prefix = 's!';
+var DEFAULTPREFIX = 's!' 
+
+var { body } = await snek
+.get('https://haruno-sakura.glitch.me/api/server/prefix') 
+
+if (!body[msg.guild.id]) {
+ body[msg.guild.id] = {
+ prefix: DEFAULTPREFIX
+};
+} 
+
+var prefix = body[msg.guild.id].prefix
+ 
   exports.prefix = prefix;
   
   if (!msg.guild) return;
