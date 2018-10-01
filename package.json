@@ -13,8 +13,6 @@
     "@discordjs/uws": "^10.149.0",
     "botlister": "^2.0.5",
     "bufferutil": "^4.0.0",
-    "canvas": "^1.6.12",
-    "canvas-constructor": "^1.1.2",
     "cheerio": "^1.0.0-rc.2",
     "cpu-stat": "^2.0.1",
     "dblapi.js": "^2.2.0",
