@@ -73,7 +73,7 @@ client.on('reconnecting', () => console.log('I am reconnecting now!'));
 client.on('message', async msg => { // eslint-disable-line
 
   //prefix 
-  const prefix = ['s!'];
+  const prefix = 's!';
   
   exports.prefix = prefix;
   
