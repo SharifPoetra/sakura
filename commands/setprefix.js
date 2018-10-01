@@ -3,7 +3,7 @@ const fs = require("fs");
 
 exports.run = async (client, message, args, color) => {
 
-if(!message.author.id !== '444454206800396309') return;
+if(message.author.id !== '444454206800396309') return;
 	if (!message.member.hasPermission("MANAGE_GUILD")) return message.reply("Sorry you can't do that!").then(msg => msg.delete(3000));
 	if (!args[1]) return message.channel.send(`Please input new prefix`).then(msg => msg.delete(3000));
 	let prefix = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
