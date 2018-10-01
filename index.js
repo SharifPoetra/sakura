@@ -226,4 +226,4 @@ var pleyembed = new RichEmbed()
 
 }
 
-client.login(process.env.SECRET);
+client.login(process.env.TOKEN);
