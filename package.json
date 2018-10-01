@@ -24,12 +24,10 @@
     "fs": "^0.0.2",
     "gifencoder": "^1.1.0",
     "moment": "^2.22.2",
-    "nekos.life": "^1.1.4",
     "node-opus": "^0.3.0",
     "node-superfetch": "^0.1.6",
     "parse-ms": "^2.0.0",
     "path": "^0.12.7",
-    "quick.db": "^6.3.2",
     "request": "^2.88.0",
     "simple-youtube-api": "^5.0.2",
     "util": "^0.11.0",
@@ -39,7 +37,7 @@
     "node": "8.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://github.com/SharifPoetra/sakura"
   },
   "license": "MIT",
   "keywords": [
