@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
 const cpuStat = require('cpu-stat');
 const run = module.exports.run = async (client, msg, args) => {
-  
-  if(args[1] === '-t') return parseDept(msg);
-  if(args[1] === '-g') return getGuild(client, msg);
+  if(!args[1] || !args[2]) return undefined;
+  if(args[1] === 'music') {
+  if(args[2] === '-t') return parseDept(msg);
+  if(args[2] === '-g') return getGuild(client, msg);
     let uptime = require('../util.js').parseDur(client.uptime);
   
       let guildsEval = await client.shard.broadcastEval('this.guilds.size')
@@ -37,6 +38,7 @@ const run = module.exports.run = async (client, msg, args) => {
           }, 1000);
   })
 }
+} 
 
 function parseDept (msg){
 	let { dependencies } = require('../package.json');
