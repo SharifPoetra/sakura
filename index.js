@@ -29,8 +29,6 @@ const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '474
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY);
 
 const queue = new Map();
-let cooldown = new Set();
-let cdseconds = 5;
 
 // event handler 
 fs.readdir("./events/", (err, files) => {
@@ -83,11 +81,6 @@ client.on('message', async msg => { // eslint-disable-line
   
 	if (!prefix || !msg.content.startsWith(prefix)) return undefined;
 
-  if(cooldown.has(msg.author.id)){
-    msg.delete();
-    return msg.reply("You have to wait 5 seconds between commands.").then(m => m.delete(5000));
-  }
-
 	const args = msg.content.slice(prefix.length).split(' ');
 	const searchString = args.slice(1).join(' ');
 	const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
@@ -100,14 +93,14 @@ client.on('message', async msg => { // eslint-disable-line
       if(client.aliases[command]){
         delete require.cache[require.resolve(`./commands/${client.aliases[command]}`)];
         require(`./commands/${client.aliases[command]}`).run(client, msg, args, prefix);
-        cooldown.add(msg.author.id);
+
       }else{
 
     delete require.cache[require.resolve(`./commands/${command}.js`)];
 
     let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, msg, args, prefix);
-      cooldown.add(msg.author.id);
+
       }
 
   } catch (e) {
@@ -117,11 +110,7 @@ client.on('message', async msg => { // eslint-disable-line
    console.log(`${msg.author.tag} used ${command} in shard ${client.shard.id} and guild ${msg.guild.name} (${msg.guild.id})`)
     //client.channels.get('477282824983019530').send(`Name: ${msg.author.tag}\nID: ${msg.author.id}\n*Used Cmd:* **${command}**\nGuildName: **${msg.guild.name}**\nGuildID: **${msg.guild.id}**\n*Shard:* **[${client.shard.id}/${client.shard.count}]**`);
   }
-  
-  setTimeout(() => {
-    cooldown.delete(msg.author.id)
-  }, cdseconds * 1000)
-  
+
 });
 
 exports.handleVideo = handleVideo;
