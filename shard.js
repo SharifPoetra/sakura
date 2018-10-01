@@ -3,7 +3,7 @@ const { ShardingManager } = require('discord.js');
 const Manager = new ShardingManager('./index.js', {
   totalShards: 1, 
   shardArgs: ['--ansi', '--color', '--trace-warnings'],
-  token: process.env.SECRET
+  token: process.env.TOKEN
 });
 
 Manager.spawn(this.totalShard, 10000, true);
