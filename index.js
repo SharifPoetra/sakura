@@ -75,7 +75,7 @@ client.on('message', async msg => { // eslint-disable-line
   var DEFAULTPREFIX = 's!' 
 
 var { body } = await snek
-.get('https://sakura-external.glitch.me/api/server/prefix') 
+.get('https://sakura-bot.glitch.me/api/server/prefix') 
 
 if (!body[msg.guild.id]) {
  body[msg.guild.id] = {
