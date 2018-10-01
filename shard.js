@@ -15,7 +15,5 @@ Manager.on('message', (shard, message) => {
     console.log(`Shard[${shard.id}] : ${message._eval} : ${message._result}`);
 });
 
-require('./server.js');
-
 process.on('unhandledRejection', e => console.error(e))
 .on('uncaughtException', e => console.error(e));
