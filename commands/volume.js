@@ -7,7 +7,7 @@ exports.run = async(client, msg, args) => {
     if (voted) {
     const serverQueue = require('../index.js').queue.get(msg.guild.id);
 if (!msg.member.voiceChannel) return msg.channel.send({ embed: { description: 'You are not in a voice channel!'}});
-   // if(serverQueue.voiceChannel.id !== msg.member.voiceChannel.id) return msg.channel.send({ embed: { color: 0xf91d1d, description: `You must be in **${serverQueue.voiceChannel.name}** to change the current volume`}});	
+    if(serverQueue.voiceChannel.id !== msg.member.voiceChannel.id) return msg.channel.send({ embed: { color: 0xf91d1d, description: `You must be in **${serverQueue.voiceChannel.name}** to change the current volume`}});	
 		if (!serverQueue) return msg.channel.send({ embed: { description: 'There is nothing playing.'}});
     var botRoleColorSync = msg.guild.member(client.user).highestRole.color;
 		if (!args[1]) return msg.channel.send({embed: { color: 0x32ffe7,  description: `The current volume is: **${serverQueue.volume}**%`}});
