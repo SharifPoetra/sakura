@@ -7,7 +7,7 @@ exports.run = async (client, msg, args) => {
 			serverQueue.connection.dispatcher.resume();
 			return msg.channel.send({ embed: { description: '▶ Resumed the music for you!'}});
 		}
-//    if(serverQueue.voiceChannel.id !== msg.member.voiceChannel.id) return msg.channel.send({ embed: { color: 0xf91d1d, description: `You must be in **${serverQueue.voiceChannel.name}** to resume the song`}});	
+    if(serverQueue.voiceChannel.id !== msg.member.voiceChannel.id) return msg.channel.send({ embed: { color: 0xf91d1d, description: `You must be in **${serverQueue.voiceChannel.name}** to resume the song`}});	
 		return msg.channel.send({ embed: { description: 'There is nothing playing.'}});
 	};
 
