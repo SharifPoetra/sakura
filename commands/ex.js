@@ -7,11 +7,11 @@ exports.run = (client, message, args, color) => {
   
   if(!args.join(' ')) return args.missing(message, 'No parameter to execute. you\'re stuppid', this.help);
   const mu = Date.now();
-  let command = `\`\`\`bash\n${args.join(' ')}\`\`\``;
+  let command = `\`\`\`bash\n${args.slice(1).join(' ')}\`\`\``;
   const emb = new RichEmbed()
   .setColor('#81FF00')
   .addField('📥 INPUT', command);
-  exec(args.join(' '), async( error, stdout, stderr)=> {
+  exec(args.slice(1).join(' '), async( error, stdout, stderr)=> {
   	if(stdout){
 	  	let output = `\`\`\`bash\n${stdout}\`\`\``;
 	  	if(stdout.length > 1024){
