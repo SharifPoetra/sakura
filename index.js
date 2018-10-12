@@ -8,8 +8,9 @@ const Botlister = require('botlister');
 const snek = require('node-superfetch');
 
 const client = new Client({
-  disableEveryone: true, 
-  fetchAllMembers: true 
+  disabledEvents: ["TYPING_START", "USER_NOTE_UPDATE", "MESSAGE_CREATE"],
+  disableEveryone: true,
+  fetchAllMembers: false
 });
 
 client.pings = new Array(96).fill(0);
