@@ -4,7 +4,7 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const fs = require('fs')
 const path = require('path');
-const Botlister = require('botlister');
+//const Botlister = require('botlister');
 const snek = require('node-superfetch');
 
 const client = new Client({
@@ -19,14 +19,16 @@ client.queue = this.queue;
 client.commands = fs.readdirSync('./commands');
 client.aliases = {};
 
+/*
 // DBL post
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL_TOKEN, client);
+*/
 
 // bots.discord.pw POST in ready events 
 
 // discordbotlist.com POST, sisanya di event ready
-const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '474723927688609797' })
+//const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '474723927688609797' })
 
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY);
 
@@ -54,6 +56,7 @@ client.aliases[file.conf.aliases] = cmd;
   }
 }
 
+/*
 dbl.on('posted', () => {
   console.log('Server count DBL posted!');
 })
@@ -61,6 +64,7 @@ dbl.on('posted', () => {
 dbl.on('error', e => {
  console.log(`Oops! ${e}`);
 })
+*/
 
 client.on('warn', console.warn);
 
