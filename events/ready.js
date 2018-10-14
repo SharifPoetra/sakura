@@ -1,4 +1,4 @@
-//const Botlister = require('botlister');
+const Botlister = require('botlister');
 const snek = require('node-superfetch');
 const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500893309514940432' });
 
