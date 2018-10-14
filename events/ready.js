@@ -33,7 +33,7 @@ exports.run = async (client) => {
       if (err) return console.error(err);
     });
     */
-     */
+     
   let version = require('../package.json').version
     console.log(`${client.user.tag} is Online`)
    /* client.user.setActivity("STREAMING");
