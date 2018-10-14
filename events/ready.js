@@ -1,6 +1,6 @@
 //const Botlister = require('botlister');
 const snek = require('node-superfetch');
-//const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '474723927688609797' });
+const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500893309514940432' });
 
 exports.run = async (client) => {
   
@@ -9,18 +9,19 @@ exports.run = async (client) => {
       let guildsEval = await client.shard.broadcastEval('this.guilds.size')
       let channelsEval = await client.shard.broadcastEval('this.channels.size')
       let usersEval = await client.shard.broadcastEval('this.users.size')
-
+      let voiceConnect = await client.shard.broadcastEval('this.voiceConnections.size') 
+      
      var botGuilds = guildsEval.reduce((prev, val) => prev + val)
      var botChannels = channelsEval.reduce((prev, val) => prev + val)
      var botUsers = usersEval.reduce((prev, val) => prev + val)
-
-     /*
+     var voice = voiceConnect.reduce ((prev, val) => prev + val) 
+     
      // discordbotlist.com POST
         lister.updateBotStatistics({
         guilds: botGuilds,
         users: botUsers, 
        shard_id: client.shard.id, 
-       voice_connections : require('../index.js').queue.size
+       voice_connections : voice
     }).then(() => console.log('Updated statistics on discordbotlist.com')).catch(console.error);
   // bots.discord.pw POST 
    /* snek
