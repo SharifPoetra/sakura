@@ -1,6 +1,6 @@
-const Botlister = require('botlister');
+//const Botlister = require('botlister');
 const snek = require('node-superfetch');
-const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '474723927688609797' });
+//const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '474723927688609797' });
 
 exports.run = async (client) => {
   
@@ -14,6 +14,7 @@ exports.run = async (client) => {
      var botChannels = channelsEval.reduce((prev, val) => prev + val)
      var botUsers = usersEval.reduce((prev, val) => prev + val)
 
+     /*
      // discordbotlist.com POST
         lister.updateBotStatistics({
         guilds: botGuilds,
@@ -32,6 +33,7 @@ exports.run = async (client) => {
       if (err) return console.error(err);
     });
     */
+     */
   let version = require('../package.json').version
     console.log(`${client.user.tag} is Online`)
    /* client.user.setActivity("STREAMING");
