@@ -25,7 +25,7 @@ const run = module.exports.run = async (client, msg, args) => {
     
     let info = new Discord.RichEmbed()
         .setColor('RANDOM')
-        .addField('Bot Information', `• Node.js: ${process.version}\n• Discord.js: ${Discord.version}\n__Creator__:\n• Sharif#2769\n• OwO#8287`) 
+        .addField('Bot Information', `• Node.js: ${process.version}\n• Discord.js: ${Discord.version}\n__Creator__:\n• Sharif#9781\n• OwO#8287`) 
         .addField('General Stats', `• **${client.shard.id} / ${client.shard.count}** shard\n• **${botGuilds.toLocaleString()}** guilds\n• **${botChannels.toLocaleString()}** channels\n• **${botUsers.toLocaleString()}** other users\n• **${botConnect}** queue(s).`)
         .addField('Usage', `• ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB Memory used\n• ${percent.toFixed(2)}% CPU used`)
         .addField('Uptime', uptime)
