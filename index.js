@@ -19,11 +19,11 @@ client.queue = this.queue;
 client.commands = fs.readdirSync('./commands');
 client.aliases = {};
 
-/*
+
 // DBL post
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL_TOKEN, client);
-*/
+
 
 // bots.discord.pw POST in ready events 
 
@@ -56,7 +56,7 @@ client.aliases[file.conf.aliases] = cmd;
   }
 }
 
-/*
+
 dbl.on('posted', () => {
   console.log('Server count DBL posted!');
 })
@@ -64,7 +64,7 @@ dbl.on('posted', () => {
 dbl.on('error', e => {
  console.log(`Oops! ${e}`);
 })
-*/
+
 
 client.on('warn', console.warn);
 
