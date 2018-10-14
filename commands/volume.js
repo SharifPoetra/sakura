@@ -21,7 +21,7 @@ if (!msg.member.voiceChannel) return msg.channel.send({ embed: { description: 'Y
     
   }
 //  })
-}
+//}
 
 exports.conf = {
    aliases: ['v']
