@@ -3,7 +3,7 @@ const { RichEmbed } = require('discord.js');
 
 exports.run = (client, message, args, color) => {
   
-    if (message.author.id !== '444454206800396309') return;
+    if (message.author.id !== '475230849239875584') return;
   
   if(!args.join(' ')) return args.missing(message, 'No parameter to execute. you\'re stuppid', this.help);
   const mu = Date.now();
