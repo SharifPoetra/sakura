@@ -4,7 +4,7 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const fs = require('fs')
 const path = require('path');
-//const Botlister = require('botlister');
+const Botlister = require('botlister');
 const snek = require('node-superfetch');
 
 const client = new Client({
@@ -28,7 +28,7 @@ const dbl = new DBL(process.env.DBL_TOKEN, client);
 // bots.discord.pw POST in ready events 
 
 // discordbotlist.com POST, sisanya di event ready
-//const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '474723927688609797' })
+const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500893309514940432' })
 
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY);
 
