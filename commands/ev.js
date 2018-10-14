@@ -9,7 +9,7 @@ const cpuStat = require('cpu-stat');
 module.exports.run = async (client, message, args) => {
  var bot = client;
  var msg = message;
-    if (!['444454206800396309', '427473949476126740'].includes(message.author.id)) {
+    if (!['475230849239875584', '427473949476126740'].includes(message.author.id)) {
         return;
     }
     function clean(text) {
