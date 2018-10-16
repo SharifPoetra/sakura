@@ -178,11 +178,11 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 var adedembed = new RichEmbed() 
 
   .setColor('RANDOM')
-  .setAuthor(`Added to Queue:`, `https://images-ext-1.discordapp.net/external/YwuJ9J-4k1AUUv7bj8OMqVQNz1XrJncu4j8q-o7Cw5M/http/icons.iconarchive.com/icons/dakirby309/simply-styled/256/YouTube-icon.png`)
+  .setAuthor(`Added to Queue:`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.duration)}`, true)
-  .addField('Uploaded by:', song.uploader)
+  .addField('<:YouTubeicon:501663319128670209> Uploaded by:', song.uploader)
   .setFooter(`Requested by: ${song.author.tag}`)
   .setTimestamp();
 		
@@ -213,11 +213,11 @@ function play(guild, song, msg) {
 var pleyembed = new RichEmbed() 
 
   .setColor('RANDOM')
-  .setAuthor(`Start Playing:`, `https://images-ext-1.discordapp.net/external/YwuJ9J-4k1AUUv7bj8OMqVQNz1XrJncu4j8q-o7Cw5M/http/icons.iconarchive.com/icons/dakirby309/simply-styled/256/YouTube-icon.png`)
+  .setAuthor(`Start Playing:`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.duration)}`, true)
-  .addField('Uploaded by:', song.uploader)
+  .addField('<:YouTubeicon:501663319128670209> Uploaded by:', song.uploader)
   .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
   .setTimestamp();
 
