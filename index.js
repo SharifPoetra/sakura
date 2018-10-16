@@ -141,14 +141,15 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     id: video.id,
     title: Util.escapeMarkdown(video.title),
     url: `https://www.youtube.com/watch?v=${video.id}`, 
-    duration: video.durationSeconds ? video.durationSeconds : video.duration / 1000,
+    durationmm: video.durationSeconds ? video.durationSeconds : video.duration / 1000,
     channel: msg.member.voiceChannel.id,
     uploadedby: video.channel.title, 
     channelurl: `https://www.youtube.com/channel/${video.channel.id}`,
     author: msg.author,
     durationh: video.duration.hours,
     durationm: video.duration.minutes,
-    durations: video.duration.seconds
+    durations: video.duration.seconds, 
+    duration: video.duration,
 };
 	if (!serverQueue) {
 		const queueConstruct = {
@@ -184,7 +185,7 @@ var adedembed = new RichEmbed()
   .setAuthor(`✅ Added to Queue:`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
-  .addField("Duration:", `${require('./util.js').timeString(song.duration)}`, true)
+  .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
   .addField('<:YouTubeicon:501663319128670209> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
   .setFooter(`Requested by: ${song.author.tag}`)
   .setTimestamp();
@@ -219,7 +220,7 @@ var pleyembed = new RichEmbed()
   .setAuthor(`🎶 Start Playing:`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
-  .addField("Duration:", `${require('./util.js').timeString(song.duration)}`, true)
+  .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
   .addField('<:YouTubeicon:501663319128670209> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
   .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
   .setTimestamp();
