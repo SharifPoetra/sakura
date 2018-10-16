@@ -23,6 +23,13 @@ class Util {
     }
     return temp;
   }
+	static timeString(seconds, forceHours = false) {
+		const hours = Math.floor(seconds / 3600);
+		const minutes = Math.floor(seconds % 3600 / 60);
+
+		return `${forceHours || hours >= 1 ? `${hours}:` : ''}${hours >= 1 ? `0${minutes}`.slice(-2) : minutes}:${`0${Math.floor(seconds % 60)}`.slice(-2)}`;
+	}
+	
   static parseDur(ms){
     let seconds = ms / 1000;
     let days = parseInt(seconds / 86400);
