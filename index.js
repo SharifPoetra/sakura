@@ -214,7 +214,7 @@ function play(guild, song, msg) {
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
-let m = await msg.channel.send(`Joining ${song.channel}...`);
+
 var pleyembed = new RichEmbed() 
 
   .setColor('RANDOM')
@@ -226,7 +226,7 @@ var pleyembed = new RichEmbed()
   .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
   .setTimestamp();
 
-	serverQueue.textChannel.send(pleyembed).then(() => {m.delete(); });
+	serverQueue.textChannel.send(pleyembed); //.then(() => {m.delete(); });
 
 }
 
