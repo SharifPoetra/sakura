@@ -179,7 +179,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 var adedembed = new RichEmbed() 
 
   .setColor('RANDOM')
-  .setAuthor(`Added to Queue:`)
+  .setAuthor(`<:yes:501551862927982612> Added to Queue:`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.duration)}`, true)
@@ -214,7 +214,7 @@ function play(guild, song, msg) {
 var pleyembed = new RichEmbed() 
 
   .setColor('RANDOM')
-  .setAuthor(`Start Playing:`)
+  .setAuthor(`🎶 Start Playing:`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.duration)}`, true)
