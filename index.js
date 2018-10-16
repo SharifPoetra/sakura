@@ -138,13 +138,10 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 	const serverQueue = queue.get(msg.guild.id);
 	//console.log(video)
 	const song = {
-		id: video.id,
-		title: Util.escapeMarkdown(video.title),
-		url: `https://www.youtube.com/watch?v=${video.id}`, 
-    durationh: video.duration.hours,
-		durationm: video.duration.minutes,
-		durations: video.duration.seconds,
-    duration: video.duration,   
+    id: video.id,
+    title: Util.escapeMarkdown(video.title),
+    url: `https://www.youtube.com/watch?v=${video.id}`, 
+    duration: video.durationSeconds ? video.durationSeconds : video.duration / 1000,
     channel: msg.member.voiceChannel.id, 
     author: msg.author,
 	
