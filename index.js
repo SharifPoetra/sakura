@@ -214,7 +214,7 @@ function play(guild, song, msg) {
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
-let m = await msg.channel.send(`Joining ${channel}...`);
+let m = await msg.channel.send(`Joining ${song.channel}...`);
 var pleyembed = new RichEmbed() 
 
   .setColor('RANDOM')
