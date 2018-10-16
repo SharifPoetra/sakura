@@ -142,7 +142,8 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     title: Util.escapeMarkdown(video.title),
     url: `https://www.youtube.com/watch?v=${video.id}`, 
     duration: video.durationSeconds ? video.durationSeconds : video.duration / 1000,
-    channel: msg.member.voiceChannel.id, 
+    channel: msg.member.voiceChannel.id,
+    uploader: video.channel.title, 
     author: msg.author,
 	
     author: msg.author};
@@ -181,6 +182,7 @@ var adedembed = new RichEmbed()
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.duration)}`, true)
+  .addField('Uploaded by:', song.uploader)
   .setFooter(`Requested by: ${song.author.tag}`)
   .setTimestamp();
 		
@@ -215,6 +217,7 @@ var pleyembed = new RichEmbed()
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.duration)}`, true)
+  .addField('Uploaded by:', song.uploader)
   .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
   .setTimestamp();
 
