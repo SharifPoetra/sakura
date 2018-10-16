@@ -146,8 +146,10 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     uploadedby: video.channel.title, 
     channelurl: `https://www.youtube.com/channel/${video.channel.id}`,
     author: msg.author,
-
-    author: msg.author};
+    durationh: video.duration.hours,
+    durationm: video.duration.minutes,
+    durations: video.duration.seconds
+};
 	if (!serverQueue) {
 		const queueConstruct = {
 			textChannel: msg.channel,
