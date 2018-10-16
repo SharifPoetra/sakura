@@ -142,7 +142,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     title: Util.escapeMarkdown(video.title),
     url: `https://www.youtube.com/watch?v=${video.id}`, 
     durationmm: video.durationSeconds ? video.durationSeconds : video.duration / 1000,
-    channel: msg.member.voiceChannel.id,
+    channel: msg.member.voiceChannel.name,
     uploadedby: video.channel.title, 
     channelurl: `https://www.youtube.com/channel/${video.channel.id}`,
     author: msg.author,
@@ -214,6 +214,7 @@ function play(guild, song, msg) {
 		})
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
+let m = await msg.channel.send(`Joining ${channel}...`);
 var pleyembed = new RichEmbed() 
 
   .setColor('RANDOM')
@@ -225,7 +226,7 @@ var pleyembed = new RichEmbed()
   .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
   .setTimestamp();
 
-	serverQueue.textChannel.send(pleyembed);
+	serverQueue.textChannel.send(pleyembed).then(() => {m.delete(); });
 
 }
 
