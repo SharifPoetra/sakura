@@ -167,7 +167,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		} catch (error) {
 			console.error(`I could not join the voice channel: ${error}`);
 			queue.delete(msg.guild.id);
-			return msg.channel.send({ embed: { description: `I could not join the voice channel: ${error}`}});
+			return msg.channel.send({ embed: { color: 0xf91d1d, description: `I could not join the voice channel: ${error}`}});
 		}
 	} else {
 		serverQueue.songs.push(song);
@@ -179,9 +179,9 @@ var adedembed = new RichEmbed()
   .setColor('RANDOM')
   .setAuthor(`Added to Queue`, `https://images-ext-1.discordapp.net/external/YwuJ9J-4k1AUUv7bj8OMqVQNz1XrJncu4j8q-o7Cw5M/http/icons.iconarchive.com/icons/dakirby309/simply-styled/256/YouTube-icon.png`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
-  .addField('Title', `__[${song.title}](${song.url})__`, true)
-  .addField('Video ID', `${song.id}`, true)
-  .addField("Duration", `${song.durationh}hr ${song.durationm}min ${song.durations}sec`, true)
+  .setTitle(`[${song.title}]`, true)
+  .setUrl(song.url)
+  .addField("Duration", `${require('./util.js').timeString(song.duration)}`, true)
   .addField('Requested by', `${song.author}`)
   .setTimestamp();
 		
@@ -216,7 +216,7 @@ var pleyembed = new RichEmbed()
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .setTitle(`${song.title}`, true)
   .setUrl(`${song.url}`, true)
-  .addField("Duration", `${song.durationh}hr ${song.durationm}min ${song.durations}sec`, true)
+  .addField("Duration", `${require('./util.js').timeString(song.duration)}`, true)
   .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
   .setTimestamp();
 
