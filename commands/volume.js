@@ -3,7 +3,7 @@ const dbl = new DBL(process.env.DBL_TOKEN);
 
 exports.run = async(client, msg, args) => {
   dbl.hasVoted(msg.author.id).then(voted => {
-    if (!voted) return msg.channel.send({ embed: { description: `You must vote first before using this feature [Click Here](https://discordbots.org/bot/474723927688609797/vote), Then wait for 1 minute until your vote is processed!`}});
+    if (!voted) return msg.channel.send({ embed: { description: `You must vote first before using this feature [Click Here](https://discordbots.org/bot/500893309514940432/vote), Then wait for 1 minute until your vote is processed!`}});
     if (voted) {
     const serverQueue = require('../index.js').queue.get(msg.guild.id);
 if (!msg.member.voiceChannel) return msg.channel.send({ embed: { description: 'You are not in a voice channel!'}});
