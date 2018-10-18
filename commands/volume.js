@@ -2,9 +2,9 @@ const DBL = require('dblapi.js');
 const dbl = new DBL(process.env.DBL_TOKEN);
 
 exports.run = async(client, msg, args) => {
-  /*dbl.hasVoted(msg.author.id).then(voted => {
+  dbl.hasVoted(msg.author.id).then(voted => {
     if (!voted) return msg.channel.send({ embed: { description: `You must vote first before using this feature [Click Here](https://discordbots.org/bot/474723927688609797/vote), Then wait for 1 minute until your vote is processed!`}});
-    if (voted) {*/
+    if (voted) {
     const serverQueue = require('../index.js').queue.get(msg.guild.id);
 if (!msg.member.voiceChannel) return msg.channel.send({ embed: { description: 'You are not in a voice channel!'}});
     if(serverQueue.voiceChannel.id !== msg.member.voiceChannel.id) return msg.channel.send({ embed: { color: 0xf91d1d, description: `You must be in **${serverQueue.voiceChannel.name}** to change the current volume`}});	
@@ -19,9 +19,9 @@ if (!msg.member.voiceChannel) return msg.channel.send({ embed: { description: 'Y
  
     if (args[1] < 101) return serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 100) + msg.channel.send({ embed: { description: `I set the volume to: __**${args[1]}**%__`}});
     
-  }
-//  })
-//}
+    }
+  })
+}
 
 exports.conf = {
    aliases: ['v']
