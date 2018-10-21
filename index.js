@@ -5,7 +5,7 @@ const ytdl = require('ytdl-core');
 const fs = require('fs')
 const path = require('path');
 const Botlister = require('botlister');
-const snek = require('superagent');
+const snek = require('node-superfetch');
 
 const client = new Client({
   disabledEvents: ["TYPING_START", "USER_NOTE_UPDATE"],
