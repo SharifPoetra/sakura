@@ -5,7 +5,7 @@ exports.run = (client, message, args, color) => {
   
     if (message.author.id !== '475230849239875584') return;
   
-  if(!args.join(' ')) return args.missing(message, 'No parameter to execute. you\'re stuppid', this.help);
+  if(!args.join(' ')) return message.channel.send('No parameter to execute. you\'re stuppid');
   const mu = Date.now();
   let command = `\`\`\`bash\n${args.slice(1).join(' ')}\`\`\``;
   const emb = new RichEmbed()
