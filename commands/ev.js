@@ -43,7 +43,7 @@ module.exports.run = async (client, message, args) => {
             func = require('util').inspect(func);
         }
         const output = '```js\n' + func + '\n```';
-        const Input = '```js\n' + message.content.slice(6) + '\n```';
+        const Input = '```js\n' + code + '\n```';
         let type = typeof (evaled);
         if (func.length < 1000) {
             const embed = new Discord.RichEmbed()
