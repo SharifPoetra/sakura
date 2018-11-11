@@ -26,8 +26,11 @@ class Util {
 	static timeString(seconds, forceHours = false) {
 		const hours = Math.floor(seconds / 3600);
 		const minutes = Math.floor(seconds % 3600 / 60);
-
+                if(isNaN(seconds) === false) {
 		return `${forceHours || hours >= 1 ? `${hours}:` : ''}${hours >= 1 ? `0${minutes}`.slice(-2) : minutes}:${`0${Math.floor(seconds % 60)}`.slice(-2)}`;
+              } else {
+               return `LIVE`
+          } 
 	}
 	
   static parseDur(ms){
@@ -50,7 +53,7 @@ class Util {
     }
     return `${seconds}s`;
   }
-  static trimArray (array, length = 10){
+  static trimArray(array, length = 10){
     const len = array.length - length;
     const temp = array.slice(0, length);
     temp.push(`...${len} more.`);
