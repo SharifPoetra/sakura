@@ -8,7 +8,7 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 
 **Example: `s!help ping`**
 
-<img src="https://cdn.discordapp.com/avatars/500893309514940432/93f5811f50cdae6c05afa18ac62aee91.png?size=256" align="right">
+<img src="https://cdn.discordapp.com/avatars/500893309514940432/93f5811f50cdae6c05afa18ac62aee91.png?size=512" align="right">
 
 
 **COMMAND LIST:**
