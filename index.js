@@ -1,4 +1,4 @@
-
+require('dotenv').config() 
 const { Discord, Client, Util, RichEmbed } = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
@@ -19,13 +19,9 @@ client.queue = this.queue;
 client.commands = fs.readdirSync('./commands');
 client.aliases = {};
 
-
 // DBL post
 const DBL = require("dblapi.js");
 const dbl = new DBL(process.env.DBL_TOKEN, client);
-
-
-// bots.discord.pw POST in ready events 
 
 // discordbotlist.com POST, sisanya di event ready
 const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500893309514940432' })
@@ -76,7 +72,6 @@ client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 client.on('message', async msg => { // eslint-disable-line
 
-  //prefix 
 var DEFAULTPREFIX = 's!' 
 
 var { body } = await snek
@@ -121,11 +116,9 @@ var prefix = body[msg.guild.id].prefix
       }
 
   } catch (e) {
-    console.log(e.message)                                                                  
-    //client.channels.get('477282824983019530').send(`***ERROR***\n\`\`\`ini\n${e.stack}\`\`\``)
+    console.log(e.stack)                                                                  
   } finally {
    console.log(`${msg.author.tag} used ${command} in shard ${client.shard.id} and guild ${msg.guild.name} (${msg.guild.id})`)
-    //client.channels.get('477282824983019530').send(`Name: ${msg.author.tag}\nID: ${msg.author.id}\n*Used Cmd:* **${command}**\nGuildName: **${msg.guild.name}**\nGuildID: **${msg.guild.id}**\n*Shard:* **[${client.shard.id}/${client.shard.count}]**`);
   }
 
 });
@@ -159,8 +152,8 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			songs: [],
 			volume: 100,
 			playing: true,
-                        loop: false, 
-                        seek: 0
+            loop: false, 
+            seek: 0
 		};
 		queue.set(msg.guild.id, queueConstruct);
 
@@ -168,8 +161,9 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 
 		try {
 			var connection = await voiceChannel.join();
+			connection.sendVoiceStateUpdate({self_deaf:true});
 			queueConstruct.connection = connection;
-			play(msg.guild, queueConstruct.songs[0]);
+			play(msg.guild, queueConstruct.songs[0])
 		} catch (error) {
 			console.error(`I could not join the voice channel: ${error}`);
 			queue.delete(msg.guild.id);

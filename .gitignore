@@ -1,0 +1,9 @@
+# ignore all logs
+*.log
+
+# ignore the environment variables 
+.env
+
+# ignore folder and files
+/node_modules
+package-lock.json
