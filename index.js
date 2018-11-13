@@ -159,7 +159,8 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			songs: [],
 			volume: 100,
 			playing: true,
-                        loop: false
+                        loop: false, 
+                        seek: 0
 		};
 		queue.set(msg.guild.id, queueConstruct);
 
