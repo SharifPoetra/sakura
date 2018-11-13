@@ -14,3 +14,4 @@ if(message.author.id !== '475230849239875584') return;
 exports.conf = {
    aliases: []
 }
+  
