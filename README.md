@@ -92,6 +92,6 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 
 # Licensing 
 
-The bot is licensed under the MIT license. See the file [LICENSE](https://github.com/SharifPoetra/sakura/blob/master/LICENCE) for more information. If you plan to use any part of this source code in your own bot, I would be grateful if you would include some form of credit somewhere.
+The bot is licensed under the MIT license. See the file [LICENSE](https://github.com/SharifPoetra/sakura/blob/master/LICENSE) for more information. If you plan to use any part of this source code in your own bot, I would be grateful if you would include some form of credit somewhere.
 
 
