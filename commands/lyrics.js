@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const snek = require('node-superfetch');
 const { load } = require('cheerio');
 const number = ['1⃣', '2⃣', '3⃣', '4⃣', '5⃣'];
@@ -7,12 +7,9 @@ const dbl = new DBL(process.env.DBL_TOKEN);
 
 exports.run = async (client, msg, args) => {
   
-  /*dbl.hasVoted(msg.author.id).then(voted => {
-    if (!voted) return msg.channel.send({ embed: { description: `You must vote first before using this feature [Click Here](https://discordbots.org/bot/474723927688609797/vote), Then wait for 1 minute until your vote is processed!`}});
-    if (voted) {*/
 	if(!args[1]) return msg.channel.send({embed: {color: 0xf91d1d, description: 'No query provided'}});
 	try{
-		const embed = new RichEmbed()
+		const embed = new MessageEmbed()
 		embed.setColor('RANDOM');
 		const { body } = await snek.get('https://api.genius.com/search')
 		.query({ q: args.slice(1).join('+') })

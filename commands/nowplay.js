@@ -1,16 +1,17 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 exports.run = async(client, msg, args) => {
   const serverQueue = require('../index.js').queue.get(msg.guild.id);
  if(!serverQueue) return msg.channel.send({ embed: { color: 0x1D82B6, description:'There is nothing playing'}});
   const duration = (serverQueue.songs[0].duration.minutes*60000) + ((serverQueue.songs[0].duration.seconds%60000)*1000);
-  const persentase = serverQueue.connection.dispatcher.time/duration;
-  const curentDurationMinute = Math.floor(serverQueue.connection.dispatcher.time/60000) < 10 ? `0${Math.floor(serverQueue.connection.dispatcher.time/60000)}` : Math.floor(serverQueue.connection.dispatcher.time/60000);
-  const currentDurationSeconds = Math.floor((serverQueue.connection.dispatcher.time%60000)/1000) < 10 ? `0${Math.floor((serverQueue.connection.dispatcher.time%60000)/1000)}` : Math.floor((serverQueue.connection.dispatcher.time%60000)/1000);
+  const persentase = serverQueue.connection.dispatcher.streamTime/duration;
+  const curentDurationMinute = Math.floor(serverQueue.connection.dispatcher.streamTime/60000) < 10 ? `0${Math.floor(serverQueue.connection.dispatcher.streamTime/60000)}` : Math.floor(serverQueue.connection.dispatcher.streamTime/60000);
+  const currentDurationSeconds = Math.floor((serverQueue.connection.dispatcher.streamTime%60000)/1000) < 10 ? `0${Math.floor((serverQueue.connection.dispatcher.streamTime%60000)/1000)}` : Math.floor((serverQueue.connection.dispatcher.streamTime%60000)/1000);
+  
   const endDurationMinute = serverQueue.songs[0].duration.minutes < 10 ? `0${serverQueue.songs[0].duration.minutes}` : serverQueue.songs[0].duration.minutes;
   const endDurationSeconds = serverQueue.songs[0].duration.seconds < 10 ? `0${serverQueue.songs[0].duration.seconds}` : serverQueue.songs[0].duration.seconds;
   
-  const emb = new RichEmbed()
+  const emb = new MessageEmbed()
   .setColor('RANDOM')
   .setAuthor(serverQueue.songs[0].author.tag, serverQueue.songs[0].author.avatarURL)
   .setTitle(serverQueue.songs[0].title)
@@ -53,7 +54,7 @@ function progressBar(percent){
 } 
 
 exports.conf = {
-   aliases: ['nowplay']
+   aliases: ['np', 'nowplaying']
 }
 
 exports.help = {

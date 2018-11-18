@@ -1,4 +1,4 @@
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { chunk } = require('../util.js');
 const { queue } = require('../index.js');
 
@@ -12,7 +12,7 @@ exports.run = async (client, msg, args) => {
 				queues.push(x);
 			}
 		});
-		const embed = new RichEmbed().setColor('RANDOM');
+		const embed = new MessageEmbed().setColor('RANDOM');
 		if(!queues || queues.length < 1) return msg.channel.send(`🎶** | Now playing ${serverQueue.songs[0].title}**`, {embed: embed.setDescription('**No songs in queue**')});
 		if(queues.length > 10){
 			let index = 0;

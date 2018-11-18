@@ -1,5 +1,5 @@
 const { exec } = require('child_process');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 exports.run = (client, message, args, color) => {
   
@@ -8,7 +8,7 @@ exports.run = (client, message, args, color) => {
   if(!args.join(' ')) return message.channel.send('No parameter to execute. you\'re stuppid');
   const mu = Date.now();
   let command = `\`\`\`bash\n${args.slice(1).join(' ')}\`\`\``;
-  const emb = new RichEmbed()
+  const emb = new MessageEmbed()
   .setColor('#81FF00')
   .addField('📥 INPUT', command);
   exec(args.slice(1).join(' '), async( error, stdout, stderr)=> {

@@ -12,9 +12,9 @@ class Util {
     return arr;
   }
   static async hastebin(text){
-    const { body } = await snek.post('https://www.hastebin.com/documents')
+    const { body } = await snek.post('https://haste.bin/documents')
     .send(text);
-    return `https://www.hastebin.com/${body.key}`;
+    return `https://hasteb.in/${body.key}`;
   }
   static chunk (array, chunkSize){
     const temp = [];

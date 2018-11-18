@@ -1,5 +1,5 @@
 require('dotenv').config() 
-const { Discord, Client, Util, RichEmbed } = require('discord.js');
+const { Discord, Client, Util, MessageEmbed } = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const fs = require('fs')
@@ -18,10 +18,6 @@ client.util = require('./util.js');
 client.queue = this.queue;
 client.commands = fs.readdirSync('./commands');
 client.aliases = {};
-
-// DBL post
-const DBL = require("dblapi.js");
-const dbl = new DBL(process.env.DBL_TOKEN, client);
 
 // discordbotlist.com POST, sisanya di event ready
 const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500893309514940432' })
@@ -52,16 +48,6 @@ client.aliases[file.conf.aliases] = cmd;
   }
 }
 
-
-dbl.on('posted', () => {
-  console.log('Server count DBL posted!');
-})
- 
-dbl.on('error', e => {
- console.log(`Oops! ${e}`);
-})
-
-
 client.on('warn', console.warn);
 
 client.on('error', error => console.log(error));
@@ -87,7 +73,7 @@ var prefix = body[msg.guild.id].prefix
  
   exports.prefix = prefix;
   
-  if (!msg.guild) return;
+    if (!msg.guild) return;
 
 	if (msg.author.bot) return undefined;
   
@@ -97,20 +83,23 @@ var prefix = body[msg.guild.id].prefix
 	const searchString = args.slice(1).join(' ');
 	const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
 	const serverQueue = queue.get(msg.guild.id);
+	msg.member.voiceChannel === msg.member.voice;
 
 	let command = msg.content.slice(prefix.length).split(' ')[0];
 	command = command.toLowerCase();
-  
+  /*
+if(msg.author.id !== '475230849239875584' && msg.author.id !== '290159952784392202' && msg.author.id !== '427473949476126740') return msg.channel.send('We are currently maintenance now, Sorry for inconvenience.');
+  */
     try {
       if(client.aliases[command]){
-        delete require.cache[require.resolve(`./commands/${client.aliases[command]}`)];
+				delete require.cache[require.resolve(`./commands/${client.aliases[command]}`)];
         require(`./commands/${client.aliases[command]}`).run(client, msg, args, prefix);
 
       }else{
 
     delete require.cache[require.resolve(`./commands/${command}.js`)];
 
-    let commandFile = require(`./commands/${command}.js`);
+		let commandFile = require(`./commands/${command}.js`);
     commandFile.run(client, msg, args, prefix);
 
       }
@@ -135,7 +124,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     title: Util.escapeMarkdown(video.title),
     url: `https://www.youtube.com/watch?v=${video.id}`, 
     durationmm: video.durationSeconds ? video.durationSeconds : video.duration / 1000,
-    channel: msg.member.voiceChannel.name,
+    channel: msg.member.voice.channel.name,
     uploadedby: video.channel.title, 
     channelurl: `https://www.youtube.com/channel/${video.channel.id}`,
     author: msg.author,
@@ -153,10 +142,10 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			volume: 100,
 			playing: true,
             loop: false, 
-            seek: 0
 		};
 		queue.set(msg.guild.id, queueConstruct);
-
+        let m = await queueConstruct.textChannel.send('<a:blob:512503400575926272>  | Music servers are expensive! But you can help out: https://paypal.me/poetrakencana');
+        setTimeout(() => { m.delete() }, 40000); 
 		queueConstruct.songs.push(song);
 
 		try {
@@ -174,7 +163,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		console.log(serverQueue.songs) 
 		if (playlist) return undefined;
   
-var adedembed = new RichEmbed() 
+var adedembed = new MessageEmbed() 
 
   .setColor('RANDOM')
   .setAuthor(`✅ Added to Queue:`)
@@ -182,7 +171,7 @@ var adedembed = new RichEmbed()
   .setTitle(`${song.title}`, song.url)
   .addField("Duration:", `${require('./util.js').timeString(song.durationmm)}`, true)
   .addField('<:YouTubeicon:501663319128670209> Uploaded by:', `[${song.uploadedby}](${song.channelurl})`, true)
-  .setFooter(`Requested by: ${song.author.tag}`)
+  .setFooter(`Request by: ${song.author.tag}`)
   .setTimestamp();
 		
  return msg.channel.send(adedembed);
@@ -199,7 +188,7 @@ function play(guild, song, msg) {
 	}
 	console.log(serverQueue.songs) 
 
-	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
+	const dispatcher = serverQueue.connection.play(ytdl(song.url, { quality: 'highestaudio' }))
 		.on('end', reason => {
 			if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
 			else console.log(reason);
@@ -210,7 +199,7 @@ function play(guild, song, msg) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 100);
 
-var pleyembed = new RichEmbed() 
+var pleyembed = new MessageEmbed() 
 
   .setColor('RANDOM')
   .setAuthor(`🎶 Start Playing:`)
@@ -221,7 +210,7 @@ var pleyembed = new RichEmbed()
   .setFooter("If you can't hear the music, please reconnect. If you still can't hear maybe the bot is restarting!")
   .setTimestamp();
 
-	serverQueue.textChannel.send(pleyembed); //.then(() => {m.delete(); });
+	serverQueue.textChannel.send(pleyembed);
 
 }
 
