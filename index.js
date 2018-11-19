@@ -115,6 +115,11 @@ exports.queue = queue;
 exports.youtube = youtube;
 
 async function handleVideo(video, msg, voiceChannel, playlist = false) {
+	if (video.durationSeconds === 0) {
+			msg.channel.send({embed: { color: 0xFF0000, description: `**${msg.author.username}**, you can't play live streams.`}});
+
+			return undefined;
+		}
 	const serverQueue = client.queue.get(msg.guild.id);
 	//console.log(video)
 	const song = {
@@ -157,6 +162,10 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			return msg.channel.send({ embed: { color: 0xf91d1d, description: `I could not join the voice channel: ${error}`}});
 		}
 	} else {
+		if (serverQueue.songs.some(song => song.id === video.id)) {				
+        msg.channel.send({embed: { color: 0xFF0000, description: `**${Util.escapeMarkdown(video.title)}** is already queued.`}});			
+        return;
+    }
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs) 
 		if (playlist) return undefined;
@@ -180,6 +189,7 @@ var adedembed = new MessageEmbed()
 function play(guild, song, msg) {
 	const serverQueue = client.queue.get(guild.id);
 	if (!song) {
+		serverQueue.textChannel.send({embed: { color: 0xFF0000, description: 'We\'ve run out of songs! Better queue up some more tunes.'}});
 		serverQueue.voiceChannel.leave();
 		client.queue.delete(guild.id);
 		return;
