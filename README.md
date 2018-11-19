@@ -86,6 +86,9 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 - `s!ping`
 - `s!server [info|roles|emojis]`
 - `s!stats`
+- `s!shardinfo`
+- `s!botinfo`
+- `s!youtube <query>`
 
 **Don't include `<>` and `[]` when using the command, It's mean `<>` is required and `[]` is optional.**
 
