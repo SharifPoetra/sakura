@@ -1,7 +1,5 @@
-const { queue } = require('../index.js');
-
-this.run = (client, msg ,args) => {
-  const serverQueue = queue.get(msg.guild.id);
+exports.run = (client, msg ,args) => {
+  const serverQueue = client.queue.get(msg.guild.id);
   if (!msg.member.voice.channel) return msg.channel.send({ embed: { color: 0xFF0000, description: 'You are not in a voice channel!'}});
   if(!serverQueue) return msg.channel.send({ embed: { description: 'Not playing anything right now'}});
   if(serverQueue.voiceChannel.id !== msg.member.voice.channelID) return msg.channel.send({ embed: { color: 0xf91d1d, description: `You must be in **${serverQueue.voiceChannel.name}** to loop the queue`}});

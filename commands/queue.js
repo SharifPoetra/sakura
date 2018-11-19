@@ -1,10 +1,9 @@
 const { MessageEmbed } = require('discord.js');
 const { chunk } = require('../util.js');
-const { queue } = require('../index.js');
 
 exports.run = async (client, msg, args) => {
 	try{
-		const serverQueue = queue.get(msg.guild.id);
+		const serverQueue = client.queue.get(msg.guild.id);
 		if(!serverQueue) return msg.channel.send({ embed: { color: 0xff0707, description: 'Not playing anything right now'}});
 		let queues = [];
 		serverQueue.songs.forEach((x, i) => {

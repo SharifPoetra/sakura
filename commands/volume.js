@@ -5,7 +5,7 @@ exports.run = async(client, msg, args) => {
   dbl.hasVoted(msg.author.id).then(voted => {
     if (!voted) return msg.channel.send({ embed: { color: 0xFF0000, description: `You must vote first before using this feature [Click Here](https://discordbots.org/bot/500893309514940432/vote), Then wait for 1 minute until your vote is processed!`}});
     if (voted) {
-    const serverQueue = require('../index.js').queue.get(msg.guild.id);
+    const serverQueue = client.queue.get(msg.guild.id);
     if (!msg.member.voice) return msg.channel.send({ embed: { color: 0xFF0000, description: 'You are not in a voice channel!'}});
 		if (!serverQueue) return msg.channel.send({ embed: { color: 0xFF0000, description: 'There is nothing playing.'}});
 		if(serverQueue.voiceChannel.id !== msg.member.voice.channelID) return msg.channel.send({ embed: { color: 0xf91d1d, description: `You must be in **${serverQueue.voiceChannel.name}** to change the current volume`}});	

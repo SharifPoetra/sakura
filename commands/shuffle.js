@@ -1,8 +1,6 @@
  exports.run = async (client, msg, args) => {
-   
-   const serverQueue = require('../index.js').queue.get(msg.guild.id);
-
-if (!msg.member.voice.channel) return msg.channel.send({ embed: { color: 0xfc0505, description: 'You are not in a voice channel!'}});
+   const serverQueue = client.queue.get(msg.guild.id);
+   if (!msg.member.voice.channel) return msg.channel.send({ embed: { color: 0xfc0505, description: 'You are not in a voice channel!'}});
     if(!serverQueue) return msg.channel.send({ embed: { color: 0xfc0505, description: 'Not playing anything right now'}});
     if(serverQueue.voiceChannel.id !== msg.member.voice.channelID) return msg.channel.send({ embed: { color: 0xf91d1d, description: `You must be in **${serverQueue.voiceChannel.name}** to shuffle the queue`}});	
     if(serverQueue.songs.length  < 3) return msg.channel.send({ embed: { color: 0xfc0505, description: 'Add some songs first!'}});

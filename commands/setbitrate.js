@@ -1,5 +1,5 @@
 exports.run = async(client, msg, args) => {
-	const serverQueue = require('../index.js').queue.get(msg.guild.id);
+	const serverQueue = client.queue.get(msg.guild.id);
 	var value = args[1];
 	if (!serverQueue) return msg.channel.send({ embed: { color: 0xFF0000, description: 'There is nothing playing.'}});
 	if (!msg.member.voice) return msg.channel.send({ embed: { color: 0xFF0000, description: 'You need to be in voice channel to changes song bitrate.'}});

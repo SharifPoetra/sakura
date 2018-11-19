@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 exports.run = async(client, msg, args) => {
 	try {
-  const serverQueue = require('../index.js').queue.get(msg.guild.id);
+  const serverQueue = client.queue.get(msg.guild.id);
  if(!serverQueue) return msg.channel.send({ embed: { color: 0x1D82B6, description:'There is nothing playing'}});
   const duration = (serverQueue.songs[0].duration.minutes*60000) + ((serverQueue.songs[0].duration.seconds%60000)*1000);
   const persentase = serverQueue.connection.dispatcher.streamTime/duration;

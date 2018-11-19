@@ -1,5 +1,5 @@
 require('dotenv').config() 
-const { Discord, Client, Util, MessageEmbed } = require('discord.js');
+const { Discord, Client, Util, MessageEmbed, Collection } = require('discord.js');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const fs = require('fs')
@@ -23,7 +23,7 @@ const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500
 
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY);
 
-const queue = new Map();
+const queue = new Collection();
 client.queue = queue;
 
 // event handler 
@@ -115,7 +115,7 @@ exports.queue = queue;
 exports.youtube = youtube;
 
 async function handleVideo(video, msg, voiceChannel, playlist = false) {
-	const serverQueue = queue.get(msg.guild.id);
+	const serverQueue = client.queue.get(msg.guild.id);
 	//console.log(video)
 	const song = {
     id: video.id,
@@ -141,7 +141,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			playing: true,
             loop: false, 
 		};
-		queue.set(msg.guild.id, queueConstruct);
+		client.queue.set(msg.guild.id, queueConstruct);
         let m = await queueConstruct.textChannel.send('<a:blob:512503400575926272>  | Music servers are expensive! But you can help out: https://paypal.me/poetrakencana');
         setTimeout(() => { m.delete() }, 40000); 
 		queueConstruct.songs.push(song);
@@ -153,7 +153,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			play(msg.guild, queueConstruct.songs[0])
 		} catch (error) {
 			console.error(`I could not join the voice channel: ${error}`);
-			queue.delete(msg.guild.id);
+			client.queue.delete(msg.guild.id);
 			return msg.channel.send({ embed: { color: 0xf91d1d, description: `I could not join the voice channel: ${error}`}});
 		}
 	} else {
@@ -178,10 +178,10 @@ var adedembed = new MessageEmbed()
 }
 
 function play(guild, song, msg) {
-	const serverQueue = queue.get(guild.id);
+	const serverQueue = client.queue.get(guild.id);
 	if (!song) {
 		serverQueue.voiceChannel.leave();
-		queue.delete(guild.id);
+		client.queue.delete(guild.id);
 		return;
 	}
 	console.log(serverQueue.songs) 

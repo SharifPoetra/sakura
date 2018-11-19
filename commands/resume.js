@@ -1,7 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 exports.run = async (client, msg, args) => {
-  const serverQueue = require('../index.js').queue.get(msg.guild.id);
+  const serverQueue = client.queue.get(msg.guild.id);
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();

@@ -26,8 +26,8 @@ if (message.author.id !== '475230849239875584' && message.author.id !== '4274739
 
       let output = clean(evaled);
       if (output.length > 1024) {
-          const { body } = await post('https://hasteb.in.com/documents').send(output);
-          embed.addField('Output', `https://hasteb.in.com/${body.key}.js`);
+          const { body } = await post('https://hasteb.in/documents').send(output);
+          embed.addField('Output', `https://hasteb.in/${body.key}.js`);
       } else {
           embed.addField('Output', '```js\n' + output + '```');
       }
@@ -35,8 +35,8 @@ if (message.author.id !== '475230849239875584' && message.author.id !== '4274739
     } catch (e) {
       let error = clean(e);
       if (error.length > 1024) {
-          const { body } = await post('https://hasteb.in.com/documents').send(error);
-          embed.addField('Error', `https://hasteb.in.com/${body.key}.js`);
+          const { body } = await post('https://hasteb.in/documents').send(error);
+          embed.addField('Error', `https://hasteb.in/${body.key}.js`);
       } else {
           embed.addField('Error', '```js\n' + error + '```');
       }
