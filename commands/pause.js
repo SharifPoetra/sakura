@@ -1,5 +1,3 @@
-  const { MessageEmbed } = require('discord.js');
-
 exports.run = async (client, msg, args) => {
   const serverQueue = client.queue.get(msg.guild.id);
 		if (serverQueue && serverQueue.playing) {
