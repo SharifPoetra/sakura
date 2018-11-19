@@ -1,4 +1,5 @@
 exports.run = async (client, msg, args) => {
+	try {
 	const serverQueue = require('../index.js').queue.get(msg.guild.id);
 	if (!msg.member.voice) return msg.channel.send({ embed: { color: 0xFF0000, description: 'You are not in a voice channel!'}});
 	if (!serverQueue) return msg.channel.send({ embed: { color: 0xFF0000, description: 'There is nothing playing that I could stop for you.'}});
@@ -6,6 +7,9 @@ exports.run = async (client, msg, args) => {
 	serverQueue.songs = [];
 	serverQueue.connection.dispatcher.end('Stop command has been used!');
 	return msg.channel.send({ embed: { color: 0xFF0000, description: 'Stopped music and leaving voice channel.'}});
+	} catch (e) {
+ 	msg.channel.send(`Oh no an error occurred :( \`${e}\` try again later.`)
+ 	} 
 }
 
 exports.conf = {

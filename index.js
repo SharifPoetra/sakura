@@ -4,7 +4,6 @@ const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
 const fs = require('fs')
 const path = require('path');
-const Botlister = require('botlister');
 const snek = require('node-superfetch');
 
 const client = new Client({
@@ -15,16 +14,17 @@ const client = new Client({
 
 client.pings = new Array(96).fill(0);
 client.util = require('./util.js');
-client.queue = this.queue;
 client.commands = fs.readdirSync('./commands');
 client.aliases = {};
 
-// discordbotlist.com POST, sisanya di event ready
+// discordbotlist.com POST. 
+const Botlister = require('botlister');
 const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500893309514940432' })
 
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY);
 
 const queue = new Map();
+client.queue = queue;
 
 // event handler 
 fs.readdir("./events/", (err, files) => {
@@ -66,10 +66,10 @@ var { body } = await snek
 if (!body[msg.guild.id]) {
  body[msg.guild.id] = {
  prefix: DEFAULTPREFIX
-};
+ };
 } 
 
-var prefix = body[msg.guild.id].prefix
+  var prefix = body[msg.guild.id].prefix
  
   exports.prefix = prefix;
   
@@ -87,9 +87,7 @@ var prefix = body[msg.guild.id].prefix
 
 	let command = msg.content.slice(prefix.length).split(' ')[0];
 	command = command.toLowerCase();
-  /*
-if(msg.author.id !== '475230849239875584' && msg.author.id !== '290159952784392202' && msg.author.id !== '427473949476126740') return msg.channel.send('We are currently maintenance now, Sorry for inconvenience.');
-  */
+  
     try {
       if(client.aliases[command]){
 				delete require.cache[require.resolve(`./commands/${client.aliases[command]}`)];

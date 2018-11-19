@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 exports.run = async(client, msg, args) => {
+	try {
   const serverQueue = require('../index.js').queue.get(msg.guild.id);
  if(!serverQueue) return msg.channel.send({ embed: { color: 0x1D82B6, description:'There is nothing playing'}});
   const duration = (serverQueue.songs[0].duration.minutes*60000) + ((serverQueue.songs[0].duration.seconds%60000)*1000);
@@ -20,6 +21,9 @@ exports.run = async(client, msg, args) => {
   .setDescription(`▶ ${progressBar(persentase)} \`[${curentDurationMinute}:${currentDurationSeconds} - ${endDurationMinute}:${endDurationSeconds}]\`🔊`);
   
   return msg.channel.send('🎶 **Now playing...**', { embed: emb});
+   } catch (e) {
+ 	msg.channel.send(`Oh no an error occurred :( \`${e}\` try again later.`)
+ 	} 
 };
 
 function progressBar(percent){

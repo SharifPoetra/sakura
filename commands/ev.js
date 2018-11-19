@@ -1,27 +1,56 @@
-const Discord = require("discord.js");
+const { MessageEmbed } = require("discord.js");
+const { post } = require('node-superfetch');
 
-exports.run = async (client, message, args, color, prefix) => {
-    if (message.author.id !== '475230849239875584' && message.author.id !== '427473949476126740' && message.author.id !== '290159952784392202') return;
+exports.run = async (client, message, args, color) => {
+  var bot = client;
+  var msg = message;
+  
+if (message.author.id !== '475230849239875584' && message.author.id !== '427473949476126740' && message.author.id !== '290159952784392202') return;
+
+    const embed = new MessageEmbed()
+    .setColor("RANDOM")
+    .addField('Input', '```js\n' + args.slice(1).join(" ") + '```')
+
     try {
-        let codein = args.slice(1).join(" ");
-        let code = eval(codein);
+      const code = args.slice(1).join(" ");
+      if (!code) return;
+      let evaled;
+      if (code.includes(`token`)) {
+        evaled = 'My Token';
+      } else {
+        evaled = eval(code);
+      }
 
-        if (typeof code !== 'string')
-            code = require('util').inspect(code, { depth: 0 });
-        let embed = new Discord.MessageEmbed()
-        .setAuthor('Evaluate')
-        .setColor(color)
-        .addField(':inbox_tray: Input', `\`\`\`js\n${codein}\`\`\``)
-        .addField(':outbox_tray: Output', `\`\`\`js\n${code}\n\`\`\``)
-        message.channel.send(embed)
-    } catch(e) {
-        message.channel.send(`\`\`\`js\n${e}\n\`\`\``);
+      if (typeof evaled !== "string")
+      evaled = require('util').inspect(evaled, { depth: 0});
+
+      let output = clean(evaled);
+      if (output.length > 1024) {
+          const { body } = await post('https://hasteb.in.com/documents').send(output);
+          embed.addField('Output', `https://hasteb.in.com/${body.key}.js`);
+      } else {
+          embed.addField('Output', '```js\n' + output + '```');
+      }
+      message.channel.send(embed);
+    } catch (e) {
+      let error = clean(e);
+      if (error.length > 1024) {
+          const { body } = await post('https://hasteb.in.com/documents').send(error);
+          embed.addField('Error', `https://hasteb.in.com/${body.key}.js`);
+      } else {
+          embed.addField('Error', '```js\n' + error + '```');
+      }
+      message.channel.send(embed);
     }
 }
 
-exports.help = {
-    name: 'eval',
-    aliases: [], 
-    description: 'only my onwer can use this command',
-    usage: '{prefix}eval [some javascript code]'
+function clean(text) {
+  if (typeof(text) === "string")
+    return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+  else
+      return text;
 }
+
+exports.conf = {
+  aliases: []
+} 
