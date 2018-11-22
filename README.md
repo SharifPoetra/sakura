@@ -26,7 +26,6 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 
 **Example: `s!help ping`**
 
-<img src="https://cdn.discordapp.com/avatars/500893309514940432/93f5811f50cdae6c05afa18ac62aee91.png?size=512" align="right">
 
 
 **COMMAND LIST:**
@@ -133,7 +132,9 @@ s!youtube <query>
 ```
 </details>
 
-**Don't include `<>` and `[]` when using the command, It's mean `<>` is required and `[]` is optional.**
+
+
+> **Don't include `<>` and `[]` when using the command, It's mean `<>` is required and `[]` is optional.**
 
 
 # Licensing 
