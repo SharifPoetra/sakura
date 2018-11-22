@@ -1,48 +1,41 @@
 {
-  "//1": "Sharif",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-  "name": "Sakura",
-  "version": "1.7.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "name": "sakura",
+  "version": "1.9.5",
+  "description": "A simple discord music bot written in discord.js frameworks",
   "main": "shard.js",
   "scripts": {
-    "start": "node ."
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SharifPoetra/sakura.git"
+  },
+  "keywords": [
+    "discord-bot"
+  ],
+  "author": "Sharif",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SharifPoetra/sakura/issues"
+  },
+  "homepage": "https://github.com/SharifPoetra/sakura#readme",
   "dependencies": {
-    "@discordjs/uws": "^10.149.0",
+    "@discordjs/uws": "^11.149.1",
     "botlister": "^2.0.5",
     "bufferutil": "^4.0.0",
     "cheerio": "^1.0.0-rc.2",
     "cluster": "^0.7.7",
     "cpu-stat": "^2.0.1",
-    "dblapi.js": "^2.2.0",
-    "discord.js": "github:discordjs/discord.js#01476de58250761ffe5eedc9ee6c9782576ca043",
+    "dblapi.js": "^2.3.0",
+    "discord.js": "github:discordjs/discord.js",
     "dotenv": "^6.1.0",
-    "express": "^4.16.3",
-    "fs": "^0.0.2",
-    "gifencoder": "^1.1.0",
+    "fs": "0.0.1-security",
     "moment": "^2.22.2",
-    "node-opus": "^0.3.0",
-    "node-superfetch": "^0.1.6",
-    "parse-ms": "^2.0.0",
+    "node-opus": "^0.3.1",
+    "node-superfetch": "^0.1.9",
     "path": "^0.12.7",
     "process-as-promised": "^1.0.1",
-    "request": "^2.88.0",
-    "simple-youtube-api": "^5.0.2",
-    "util": "^0.11.0",
-    "ytdl-core": "^0.25.2"
-  },
-  "engines": {
-    "node": "8.x"
-  },
-  "repository": {
-    "url": "https://github.com/SharifPoetra/sakura"
-  },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
+    "simple-youtube-api": "^5.1.1",
+    "ytdl-core": "^0.28.0"
+  }
 }

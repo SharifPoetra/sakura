@@ -73,9 +73,9 @@ let guildsEval = await client.shard.broadcastEval('this.guilds.size')
 • ${totalVoiceChannels.toLocaleString()} Total Voice
 • ${client.voiceConnections.size}/${botConnect} Queue Connected
 `, true)
-  .addField('System', `• ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB Memory used
+  .addField('System', `• ${(process.memoryUsage().rss / 1024 / 1024).toFixed(2)}MB Memory used
 • ${percent.toFixed(2)}% CPU used
-• ${client.ping.toFixed(2)} MS websocket
+• ${client.ws.ping.toFixed(2)} MS websocket
 `, true)
   .addField('Uptime', uptime, true) 
   .addField('Usefull Links', '**[Invite](https://discordapp.com/oauth2/authorize?client_id=500893309514940432&scope=bot&permissions=1517419646)** | **[Support server](https://discord.gg/BTckadf)** | **[Vote](https://discordbots.org/bot/500893309514940432/vote)**') 

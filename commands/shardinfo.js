@@ -4,7 +4,7 @@ exports.run = async(client, message, args, color, prefix) => {
 	if(!args[1]) return;
   if(args[1] === 'music' || args[1] === 'm') {
   try {
-    const results = await client.shard.broadcastEval('[this.shard.id, this.users.size, this.channels.size, this.guilds.size, this.ping.toFixed(0), this.voiceConnections.size, (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)]');
+    const results = await client.shard.broadcastEval('[this.shard.id, this.users.size, this.channels.size, this.guilds.size, this.ws.ping.toFixed(0), this.voiceConnections.size, (process.memoryUsage().rss / 1024 / 1024).toFixed(2)]');
 
   let embed = new MessageEmbed() 
   .setColor("RANDOM")
@@ -13,7 +13,7 @@ exports.run = async(client, message, args, color, prefix) => {
   .setTimestamp() 
   .setFooter(`Request by: ${message.author.tag}`)
   for(const res of results){
-	embed.addField(`#Shard [${res[0]+1} / ${client.shard.count}] ${client.shard.id === res[0] ? '📌' : ''}`,
+	embed.addField(`#Shard [${res[0]} / ${client.shard.count - 1}] ${client.shard.id === res[0] ? '📌' : ''}`,
 		`
 ${res[1]} users
 ${res[2]} channels 
