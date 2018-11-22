@@ -35,7 +35,7 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 <summary>Music</summary>
 <br>
 
-```js
+```asciidoc
  s!search <Song Name>
  s!play <Song Name>
  s!loop
