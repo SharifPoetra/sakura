@@ -1,3 +1,5 @@
+ [![Discord](https://discordapp.com/api/guilds/492345609928572948/embed.png)](https://discord.gg/BTckadf)
+
 [![Discord Bots](https://discordbots.org/api/widget/500893309514940432.svg?usernamecolor=4e17b5&topcolor=2d54ff&middlecolor=442b0&datacolor=f442e5&highlightcolor=424bf4&labelcolor=eff0f9)](https://discordbots.org/bot/500893309514940432)
 
 [![Bots for Discord](https://botsfordiscord.com/api/bot/500893309514940432/widget)](https://botsfordiscord.com/bots/500893309514940432) 
