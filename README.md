@@ -35,7 +35,7 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 <summary>Music</summary>
 <br>
 
-```asciidoc
+```
  s!search <Song Name>
  s!play <Song Name>
  s!loop
@@ -56,7 +56,7 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 <summary>Fun</summary>
 <br>
 
-```js
+```
 s!8ball <questions>
 s!beautiful [@mention|id]
 s!clapify [text]
@@ -73,19 +73,32 @@ s!triggered [mention|id]
 ```
 
 </details>
+<br>
+<details>
+<summary>Games</summary>
+<br>
+	
+```
+s!akinator
+s!connect4 [mention]
+s!dice
+s!hungergame <tribute>
+s!lessons
+s!tictactoe [mention]
+```
+</details>
+<br>
+<details>
+<summary>Moderation</summary>
+<br>
 
-#### Games:
-- `s!akinator`
-- `s!connect4 [mention]`
-- `s!dice`
-- `s!hungergame <tribute>`
-- `s!lessons`
-- `s!tictactoe [mention]`
-
-#### Moderation:
-- `s!logging`
-- `s!welcomeimg`
-- `s!setprefix`
+```
+s!logging
+s!welcomeimg
+s!setprefix
+```
+	
+</details>
 
 #### Support:
 - `s!bugreport <bug content>`
