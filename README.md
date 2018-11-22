@@ -121,6 +121,7 @@ s!youtube <query>
 
 > **Don't include `<>` and `[]` when using the command, It's mean `<>` is required and `[]` is optional.** </br>
 
+<br>.</br>
 
 # Licensing 
 
