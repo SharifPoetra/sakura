@@ -1,5 +1,5 @@
 const snek = require('node-superfetch');
- a
+
 class Util {
   static shuffle (array){
     const arr = array.slice(0);
