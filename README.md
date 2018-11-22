@@ -15,6 +15,8 @@
 </a>
 
 
+> . 
+> . 
 
 24/7 Music bot and using discord.js as the library. Please support sakura by voting to improve this bot to be better.
 
@@ -28,7 +30,7 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 
 
 
-**COMMAND LIST:**
+## COMMAND LIST:
 
 <details>
 <summary>Music</summary>
@@ -132,7 +134,8 @@ s!youtube <query>
 ```
 </details>
 
-
+> . 
+> . 
 
 > **Don't include `<>` and `[]` when using the command, It's mean `<>` is required and `[]` is optional.**
 
