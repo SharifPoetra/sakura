@@ -116,19 +116,19 @@ s!youtube <query>
 ```
 </details>
 
-<br>.</br>
-<br>.</br>
+<br></br>
+<br></br>
 
 > **Don't include `<>` and `[]` when using the command, It's mean `<>` is required and `[]` is optional.** </br>
 
-<br>.</br>
+<br></br>
 
 # Licensing 
 
 The bot is licensed under the MIT license. See the file [LICENSE](https://github.com/SharifPoetra/sakura/blob/master/LICENSE) for more information. If you plan to use any part of this source code in your own bot, I would be grateful if you would include some form of credit somewhere.
 
 
-
+<br></br>
 
 [![Discord Bots](https://discordbots.org/api/widget/500893309514940432.svg?usernamecolor=4e17b5&topcolor=2d54ff&middlecolor=442b0&datacolor=f442e5&highlightcolor=424bf4&labelcolor=eff0f9)](https://discordbots.org/bot/500893309514940432)
 
