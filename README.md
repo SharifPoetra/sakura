@@ -99,14 +99,25 @@ s!setprefix
 ```
 	
 </details>
-
-#### Support:
+<br>
+<details>
+<summary>Support</summary>
+<br>
+	
+```
 - `s!bugreport <bug content>`
 - `s!donate`
 - `s!invite`
 - `s!vote`
+```
 
-#### Utility:
+</details>
+<br>
+<details>
+<summary>Utility</summary>
+<br>
+	
+```
 - `s!avatar [mention|id]`
 - `s!changelog`
 - `s!dbl <options> <@bot>`
@@ -118,6 +129,9 @@ s!setprefix
 - `s!shardinfo`
 - `s!botinfo`
 - `s!youtube <query>`
+
+```
+</details>
 
 **Don't include `<>` and `[]` when using the command, It's mean `<>` is required and `[]` is optional.**
 
