@@ -116,7 +116,7 @@ s!youtube <query>
 ```
 </details>
 
-> . 
+-
 
 
 > **Don't include `<>` and `[]` when using the command, It's mean `<>` is required and `[]` is optional.**
