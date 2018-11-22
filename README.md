@@ -128,11 +128,13 @@ The bot is licensed under the MIT license. See the file [LICENSE](https://github
 
 
 <div style='text-align: center; '>
+<p>
 [![Discord Bots](https://discordbots.org/api/widget/500893309514940432.svg?usernamecolor=4e17b5&topcolor=2d54ff&middlecolor=442b0&datacolor=f442e5&highlightcolor=424bf4&labelcolor=eff0f9)](https://discordbots.org/bot/500893309514940432)
-
+</p>
+<p>
 [![Bots for Discord](https://botsfordiscord.com/api/bot/500893309514940432/widget)](https://botsfordiscord.com/bots/500893309514940432) 
-
-
+</p>
+<p>
 <a href="https://discordbotlist.com/bots/500893309514940432">
 	<img 
 		width="380" 
@@ -140,4 +142,5 @@ The bot is licensed under the MIT license. See the file [LICENSE](https://github
 		src="https://discordbotlist.com/bots/500893309514940432/widget" 
 		alt="Sakura stats on Discord Bot List">
 </a>
+</p>
 </div>
