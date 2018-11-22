@@ -86,7 +86,7 @@ let guildsEval = await client.shard.broadcastEval('this.guilds.size')
   });
  } 
 } catch (e) {
-	message.channel.send(e.message);
+	msg.channel.send(e.message);
 	} 
 } 
 
