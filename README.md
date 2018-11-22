@@ -31,35 +31,48 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 
 **COMMAND LIST:**
 
-#### Music:
+<details>
+<summary>Music</summary>
+<br>
 
-- `s!search <Song Name>`
-- `s!play <Song Name>`
-- `s!loop`
-- `s!shuffle`
-- `s!lyrics <Song Name>`
-- `s!np`
-- `s!queue`
-- `s!skip`
-- `s!stop`
-- `s!pause`
-- `s!resume`
-- `s!volume [1 - 100]`
+```js
+ s!search <Song Name>
+ s!play <Song Name>
+ s!loop
+ s!shuffle
+ s!lyrics <Song Name>
+ s!np
+ s!queue
+ s!skip
+ s!stop
+ s!pause
+ s!resume
+ s!volume [1 - 100]
+```
 
-#### Fun:
-- `s!8ball <questions>`
-- `s!beautiful [@mention|id]`
-- `s!clapify [text]`
-- `s!clyde <text>`
-- `s!neko`
-- `s!f`
-- `s!owoify <text>`
-- `s!ratewaifu <mention|text>`
-- `s!sakura`
-- `s!say <text>`
-- `s!ship <@user1 @user2>`
-- `s!tableflip`
-- `s!triggered [mention|id]`
+</details>
+<br>
+<details>
+<summary>Fun</summary>
+<br>
+
+```js
+s!8ball <questions>
+s!beautiful [@mention|id]
+s!clapify [text]
+s!clyde <text>
+s!neko
+s!f
+s!owoify <text>
+s!ratewaifu <mention|text>
+s!sakura
+s!say <text>
+s!ship <@user1 @user2>
+s!tableflip`
+s!triggered [mention|id]
+```
+
+</details>
 
 #### Games:
 - `s!akinator`
