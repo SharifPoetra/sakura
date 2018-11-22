@@ -105,10 +105,10 @@ s!setprefix
 <br>
 	
 ```
-- `s!bugreport <bug content>`
-- `s!donate`
-- `s!invite`
-- `s!vote`
+s!bugreport <bug content>
+s!donate
+s!invite
+s!vote
 ```
 
 </details>
@@ -118,17 +118,17 @@ s!setprefix
 <br>
 	
 ```
-- `s!avatar [mention|id]`
-- `s!changelog`
-- `s!dbl <options> <@bot>`
-- `s!discrim <discriminator>`
-- `s!help`
-- `s!ping`
-- `s!server [info|roles|emojis]`
-- `s!stats`
-- `s!shardinfo`
-- `s!botinfo`
-- `s!youtube <query>`
+s!avatar [mention|id]
+s!changelog
+s!dbl <options> <@bot>
+s!discrim <discriminator>
+s!help
+s!ping
+s!server [info|roles|emojis]
+s!stats
+s!shardinfo
+s!botinfo
+s!youtube <query>
 
 ```
 </details>
