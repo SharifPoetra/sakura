@@ -6,14 +6,15 @@ const Manager = new ShardingManager('./index.js', {
   respawn: true, 
 });
 
-Manager.spawn(this.totalShard, 5000, true);
-Manager.on('launch', shard => {
-    console.log(`💎 Launch Shard ${shard.id} [${shard.id + 1}/${Manager.totalShards}]`);
+Manager.on('shardCreate', shard => {
+	console.log(`----- SHARD ${shard.id} LAUNCHED -----`);
+	shard.on('death', () => console.log(`----- SHARD ${shard.id} DIED -----`))
+		.on('ready', () => console.log(`----- SHARD ${shard.id} READY -----`))
+		.on('disconnect', () => console.log(`----- SHARD ${shard.id} DISCONNECTED -----`))
+		.on('reconnecting', () => console.log(`----- SHARD ${shard.id} RECONNECTING -----`));
 });
 
-Manager.on('message', (shard, message) => {
-    console.log(`Shard[${shard.id}] : ${message._eval} : ${message._result}`);
-});
+Manager.spawn(this.totalShard, 5000, true);
 
 process.on('unhandledRejection', e => console.error(e))
 .on('uncaughtException', e => console.error(e));

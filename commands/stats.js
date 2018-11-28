@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const cpuStat = require('cpu-stat');
 const run = module.exports.run = async (client, msg, args) => {
+	if(msg.author.id !== '475230849239875584') return;
 	try {
   if(!args[1]) return undefined;
   if(args[1] === 'music') {
@@ -57,7 +58,7 @@ let guildsEval = await client.shard.broadcastEval('this.guilds.size')
   .setColor("RANDOM")
   .setThumbnail(client.user.displayAvatarURL)
   .setTitle(`${client.user.username}\'s Statistics (shard/total)`) 
-  .setDescription(`This guild is running on shard ${client.shard.id+1} of ${client.shard.count}...`)
+  .setDescription(`This guild is running on shard ${client.shard.id} of ${client.shard.count}...`)
   .addField('Guilds', `• ${client.guilds.size.toLocaleString()}/${botGuilds.toLocaleString()} Guilds`) 
   .addField('Users', `
 • ${client.users.size.toLocaleString()}/${botUsers.toLocaleString()} Users

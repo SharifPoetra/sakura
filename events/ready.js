@@ -22,7 +22,7 @@ exports.run = async (client) => {
         users: botUsers, 
        shard_id: client.shard.id, 
        voice_connections : voice
-    }).then(() => console.log('Updated statistics on discordbotlist.com')).catch(console.error);
+    }).catch(e => console.log("[BOTLIST] failed POST :  "+ e));
   // bots.discord.pw POST 
    /* snek
       .post(`https://bots.discord.pw/api/bots/${client.user.id}/stats`)

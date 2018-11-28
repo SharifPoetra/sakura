@@ -1,6 +1,7 @@
 const { MessageEmbed } = require('discord.js');
 
 exports.run = async(client, message, args, color, prefix) => {
+	if(message.author.id !== '475230849239875584') return;
 	if(!args[1]) return;
   if(args[1] === 'music' || args[1] === 'm') {
   try {
@@ -13,7 +14,7 @@ exports.run = async(client, message, args, color, prefix) => {
   .setTimestamp() 
   .setFooter(`Request by: ${message.author.tag}`)
   for(const res of results){
-	embed.addField(`#Shard [${res[0]} / ${client.shard.count - 1}] ${client.shard.id === res[0] ? '📌' : ''}`,
+	embed.addField(`#Shard [${res[0]} / ${client.shard.count}] ${client.shard.id === res[0] ? '📌' : ''}`,
 		`
 ${res[1]} users
 ${res[2]} channels 
