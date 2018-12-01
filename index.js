@@ -7,7 +7,14 @@ const path = require('path');
 const snek = require('node-superfetch');
 
 const client = new Client({
-  disabledEvents: ["TYPING_START", "USER_NOTE_UPDATE"],
+  disabledEvents: [
+  "TYPING_START",
+  "USER_NOTE_UPDATE", 
+  "GUILD_MEMBERS_CHUNK", 
+  "MESSAGE_REACTION_ADD", 
+  "MESSAGE_REACTION_REMOVE_ALL", 
+  "MESSAGE_REACTION_REMOVE"
+],
   disableEveryone: true,
   fetchAllMembers: false
 });

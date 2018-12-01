@@ -1,10 +1,11 @@
 const Discord = require("discord.js");
 const cpuStat = require('cpu-stat');
+const { exec } = require('child_process');
+
 const run = module.exports.run = async (client, msg, args) => {
-	if(msg.author.id !== '475230849239875584') return;
+
 	try {
-  if(!args[1]) return undefined;
-  if(args[1] === 'music') {
+  if(args[1] === 'core') return undefined;
   if(args[2] === '-t') return parseDept(msg);
   if(args[2] === '-g') return getGuild(client, msg);
     let uptime = require('../util.js').parseDur(client.uptime);
@@ -49,6 +50,8 @@ let guildsEval = await client.shard.broadcastEval('this.guilds.size')
   				nonGuildChannels++
   		}
   
+  exec('uptime -p', async(error, stdout, stderr) => {
+  
   cpuStat.usagePercent(function(err, percent, seconds) {
     if (err) {
       return console.log(err);
@@ -78,14 +81,15 @@ let guildsEval = await client.shard.broadcastEval('this.guilds.size')
 • ${percent.toFixed(2)}% CPU used
 • ${client.ws.ping.toFixed(2)} MS websocket
 `, true)
-  .addField('Uptime', uptime, true) 
+  .addField('Sakura uptime', uptime, true) 
+  .addField('Server uptime', stdout, true) 
   .addField('Usefull Links', '**[Invite](https://discordapp.com/oauth2/authorize?client_id=500893309514940432&scope=bot&permissions=1517419646)** | **[Support server](https://discord.gg/BTckadf)** | **[Vote](https://discordbots.org/bot/500893309514940432/vote)**') 
   .setTimestamp()
   .setFooter(`Request by: ${msg.author.tag}`)
     
     return msg.channel.send(info); // eslint-disable-line one-var
+   });
   });
- } 
 } catch (e) {
 	msg.channel.send(e.message);
 	} 
@@ -137,7 +141,7 @@ async function getGuild (client, msg){
 }
 
 exports.conf = {
-   aliases: ['info', 'botinfo', 'about']
+   aliases: ['statistics'] 
 }
 
 module.exports.help = {
