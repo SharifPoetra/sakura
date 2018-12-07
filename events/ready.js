@@ -1,6 +1,8 @@
-const Botlister = require('botlister');
 const snek = require('node-superfetch');
+/*
+const Botlister = require('botlister');
 const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500893309514940432' });
+*/
 
 exports.run = async (client) => {
   
@@ -15,7 +17,8 @@ exports.run = async (client) => {
      var botChannels = channelsEval.reduce((prev, val) => prev + val)
      var botUsers = usersEval.reduce((prev, val) => prev + val)
      var voice = voiceConnect.reduce ((prev, val) => prev + val) 
-     
+
+/*     
      // discordbotlist.com POST
         lister.updateBotStatistics({
         guilds: botGuilds,
@@ -23,6 +26,7 @@ exports.run = async (client) => {
        shard_id: client.shard.id, 
        voice_connections : voice
     }).catch(e => console.log("[BOTLIST] failed POST :  "+ e));
+    */
   // bots.discord.pw POST 
    /* snek
       .post(`https://bots.discord.pw/api/bots/${client.user.id}/stats`)

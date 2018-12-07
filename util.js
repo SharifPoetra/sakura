@@ -1,6 +1,19 @@
 const snek = require('node-superfetch');
 
 class Util {
+	
+	static timeParser(time) {
+	    let days = Math.floor((time % 31536000) / 86400);
+	    let hours = Math.floor(((time % 31536000) % 86400) / 3600);
+	    let minutes = Math.floor((((time % 31536000) % 86400) % 3600) / 60);
+	    let seconds = Math.round((((time % 31536000) % 86400) % 3600) % 60);
+	    days = days > 9  ? days : "0" + days
+	    hours = hours > 9 ? hours : "0" + hours
+	    minutes = minutes > 9 ? minutes : "0" + minutes
+	    seconds = seconds > 9 ? seconds : "0" + seconds
+	    return (parseInt(days) > 0 ? days + ":" : "") + (parseInt(hours) === 0 && parseInt(days) === 0 ? "" : hours + ":") + minutes + ":" + seconds
+	}
+	
   static shuffle (array){
     const arr = array.slice(0);
     for(let i = arr.length -1; i >= 0; i--){
@@ -43,38 +56,21 @@ class Util {
     seconds = parseInt(seconds % 60);
     
     if (days) {
-      return `${days}d ${hours}h ${minutes}m ${seconds}s`;
+      return `${days} day, ${hours} hours, ${minutes}, minutes`;
     }
     else if (hours) {
-      return `${hours}h ${minutes}m ${seconds}s`;
+      return `${hours} hours, ${minutes} minutes, ${seconds} seconds`;
     }
     else if (minutes) {
-      return `${minutes}m ${seconds}s`;
+      return `${minutes} minutes, ${seconds} seconds`;
     }
-    return `${seconds}s`;
+    return `${seconds} seconds`;
   }
   static trimArray(array, length = 10){
     const len = array.length - length;
     const temp = array.slice(0, length);
     temp.push(`...${len} more.`);
     return temp;
-  }
-  static async verify(user, msg, time = 30000){
-    await msg.react('🇾');
-    await msg.react('🇳');
-    const data = await msg.awaitReactions(reaction => reaction.users.has(user.id), { time: time, max: 1});
-    if(data.firstKey() === '🇾') return true;
-    return false;
-  }
-  static async scrapeSubreddit(subreddit){
-    subreddit = typeof subreddit === "string" && subreddit.length !== 0 ? subreddit : "puppies";
-    const { body } = await snek.get(`https://imgur.com/r/${subreddit}/hot.json`);
-    if(!body.data) return undefined;
-    const img = body.data[Math.floor(Math.random() * body.data.length)];
-    return `http://imgur.com/${img.hash}${img.ext.replace(/\?.*/, "")}`;
-  }
-  static codeblock (string, code){
-    return `\`\`\`${code}\n${string}\`\`\``;
   }
   static silhouette(ctx, x, y, width, height) {
 		const data = ctx.getImageData(x, y, width, height);
@@ -91,10 +87,7 @@ class Util {
       return String.frrmCharCode(code)
     });
   }
-  static async scrapeSubreddit(sub){
-    const url = await require('random-puppy')(sub);
-    return url;
-  }
+  
 }
 
 

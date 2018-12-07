@@ -29,7 +29,7 @@ exports.run = async (client, msg, args) => {
        thisMess.delete();
     }
 		if(!response.size){
-			return thisMess.edit('**You took to long to reply!**', {}).then(x => x.delete(6000));
+			return thisMess.edit('**You took to long to reply!**', {}).then(x => x.delete({timeout: 6000}));
 		}
 		const choice = number.indexOf(response.first().emoji.name);
 		const { text } = await snek.get(result[choice].result.url);
