@@ -2,6 +2,8 @@
 [![Discord](https://discordapp.com/api/guilds/492345609928572948/embed.png)](https://discord.gg/BTckadf)
 
 
+#markdown
+
 24/7 Music bot and using discord.js as the library. Please support sakura by voting to improve this bot to be better.
 
 Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
@@ -19,18 +21,18 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 <br>
 
 ```
- s!search <Song Name>
- s!play <Song Name>
- s!loop
- s!shuffle
- s!lyrics <Song Name>
- s!np
- s!queue
- s!skip
- s!stop
- s!pause
- s!resume
- s!volume [1 - 100]
+ s!search <Song Name><br>
+ s!play <Song Name><br>
+ s!loop<br>
+ s!shuffle<br>
+ s!lyrics <Song Name><br>
+ s!np<br>
+ s!queue<br>
+ s!skip<br>
+ s!stop<br>
+ s!pause<br>
+ s!resume<br>
+ s!volume [1 - 100]<br>
 ```
 
 </details>
@@ -40,19 +42,19 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 <br>
 
 ```
-s!8ball <questions>
-s!beautiful [@mention|id]
-s!clapify [text]
-s!clyde <text>
-s!neko
-s!f
-s!owoify <text>
-s!ratewaifu <mention|text>
-s!sakura
-s!say <text>
-s!ship <@user1 @user2>
-s!tableflip`
-s!triggered [mention|id]
+s!8ball <questions><br>
+s!beautiful [@mention|id]<br>
+s!clapify [text]<br>
+s!clyde <text><br>
+s!neko<br>
+s!f<br>
+s!owoify <text><br>
+s!ratewaifu <mention|text><br>
+s!sakura<br>
+s!say <text><br>
+s!ship <@user1 @user2><br>
+s!tableflip<br>
+s!triggered [mention|id]<br>
 ```
 
 </details>
@@ -62,12 +64,12 @@ s!triggered [mention|id]
 <br>
 	
 ```
-s!akinator
-s!connect4 [mention]
-s!dice
-s!hungergame <tribute>
-s!lessons
-s!tictactoe [mention]
+s!akinator<br>
+s!connect4 [mention]<br>
+s!dice<br>
+s!hungergame <tribute><br>
+s!lessons<br>
+s!tictactoe [mention]<br>
 ```
 </details>
 <br>
@@ -76,9 +78,9 @@ s!tictactoe [mention]
 <br>
 
 ```
-s!logging
-s!welcomeimg
-s!setprefix
+s!logging<br>
+s!welcomeimg<br>
+s!setprefix<br>
 ```
 	
 </details>
@@ -88,10 +90,10 @@ s!setprefix
 <br>
 	
 ```
-s!bugreport <bug content>
-s!donate
-s!invite
-s!vote
+s!bugreport <bug content><br>
+s!donate<br>
+s!invite<br>
+s!vote<br>
 ```
 
 </details>
@@ -101,17 +103,17 @@ s!vote
 <br>
 	
 ```
-s!avatar [mention|id]
-s!changelog
-s!dbl <options> <@bot>
-s!discrim <discriminator>
-s!help
-s!ping
-s!server [info|roles|emojis]
-s!stats
-s!shardinfo
-s!botinfo
-s!youtube <query>
+s!avatar [mention|id]<br>
+s!changelog<br>
+s!dbl <options> <@bot><br>
+s!discrim <discriminator><br>
+s!help<br>
+s!ping<br>
+s!server [info|roles|emojis]<br>
+s!stats<br>
+s!shardinfo<br>
+s!botinfo<br>
+s!youtube <query><br>
 
 ```
 </details>
