@@ -146,4 +146,8 @@ The bot is licensed under the MIT license. See the file [LICENSE](https://github
 		src="https://discordbotlist.com/bots/500893309514940432/widget" 
 		alt="Sakura stats on Discord Bot List">
 </a>
+
+<a href="https://divinediscordbots.com/bots/500893309514940432">
+  <img src="https://divinediscordbots.com/api/widget/500893309514940432.svg" alt="Sakura"/>
+</a>
 </div>
