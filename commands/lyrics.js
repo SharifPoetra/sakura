@@ -6,6 +6,7 @@ const DBL = require('dblapi.js');
 const dbl = new DBL(process.env.DBL_TOKEN);
 
 exports.run = async (client, msg, args) => {
+	if(msg.author.id !== '475230849239875584') return msg.channel.send('This feature is currently maintenance for fixing some bugs, Please try again later amd sorry for inconvenience.');
   
 	if(!args[1]) return msg.channel.send({embed: {color: 0xf91d1d, description: 'No query provided'}});
 	try{

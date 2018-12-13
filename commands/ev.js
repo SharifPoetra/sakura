@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const { post } = require('node-superfetch');
-
+const api = require('genius-api');
+var genius = new api(process.env.GENIUS);
 exports.run = async (client, message, args, color) => {
   var bot = client;
   var msg = message;

@@ -114,6 +114,7 @@ s!stats<br>
 s!shardinfo<br>
 s!botinfo<br>
 s!youtube <query><br>
+s!userinfo [@User]
 
 ```
 </details>

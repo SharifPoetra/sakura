@@ -3,7 +3,7 @@ const { ShardingManager } = require('discord.js');
 const Manager = new ShardingManager('./index.js', {
   totalShards: 2, 
   token: process.env.TOKEN, 
-  respawn: true, 
+  respawn: true
 });
 
 Manager.on('shardCreate', shard => {

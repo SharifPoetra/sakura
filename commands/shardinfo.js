@@ -1,4 +1,6 @@
 const { MessageEmbed } = require('discord.js');
+const moment = require('moment');
+require('moment-duration-format');
 
 exports.run = async(client, message, args, color, prefix) => {
   if(args[1] === 'core') return;
@@ -20,7 +22,7 @@ Guilds: ${res[3]}
 Queue: ${res[5]}
 Ping: ${res[4]} ms
 RAM: ${res[6]} MB
-Uptime: ${require('moment')(res[7]).format('HH:mm:ss')}
+Uptime: ${moment.duration(res[7]).format('hh:mm:ss', { trim: false })}
 		`, true);
   } 
   return message.channel.send(embed)
