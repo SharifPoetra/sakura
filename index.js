@@ -24,10 +24,6 @@ client.util = require('./util.js');
 client.commands = fs.readdirSync('./commands');
 client.aliases = {};
 
-// discordbotlist.com POST. 
-const Botlister = require('botlister');
-const lister = new Botlister({ apiToken: process.env.BOTLIST, defaultBotId: '500893309514940432' })
-
 const youtube = new YouTube(process.env.YOUTUBE_API_KEY);
 
 const queue = new Collection();
@@ -55,6 +51,15 @@ client.aliases[file.conf.aliases] = cmd;
   }
 }
 
+// prefix stuff
+setInterval(async() => {
+  const { body } = await snek.get('https://haruno-sakura.glitch.me/api/server/prefix');
+  fs.writeFile("./prefixes.json", JSON.stringify(body, null, 2), (err) => {
+    if(err) return console.log(err);
+    return console.log("Received data from glitch prefix");
+  }) 
+}, 3600000);
+
 client.on('warn', console.warn);
 
 client.on('error', error => console.log(error));
@@ -64,26 +69,19 @@ client.on('disconnect', () => console.log('I just disconnected, making sure you 
 client.on('reconnecting', () => console.log('I am reconnecting now!'));
 
 client.on('message', async msg => { // eslint-disable-line
+  
+  if(!msg.guild || msg.author.bot) return;
 
-var DEFAULTPREFIX = 's!' 
-
-var { body } = await snek
-.get('https://haruno-sakura.glitch.me/api/server/prefix') 
-
-if (!body[msg.guild.id]) {
- body[msg.guild.id] = {
- prefix: DEFAULTPREFIX
- };
-} 
-
-  var prefix = body[msg.guild.id].prefix
+  let prefixes = JSON.parse(fs.readFileSync('./prefixes.json', 'utf8'));
+  
+  if (!prefixes[msg.guild.id]) {
+      prefixes[msg.guild.id] = {
+        prefix: "s!"
+      }
+  }
+  var prefix = prefixes[msg.guild.id].prefix
  
   exports.prefix = prefix;
-  
-    if (!msg.guild) return;
-
-	if (msg.author.bot) return undefined;
-  
 	if (!prefix || !msg.content.startsWith(prefix)) return undefined;
 
 	const args = msg.content.slice(prefix.length).split(' ');
