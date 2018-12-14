@@ -58,7 +58,7 @@ setInterval(async() => {
     if(err) return console.log(err);
     return console.log("Received data from glitch prefix");
   }) 
-}, 3600000);
+}, 180000);
 
 client.on('warn', console.warn);
 
