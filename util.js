@@ -56,7 +56,7 @@ class Util {
     seconds = parseInt(seconds % 60);
     
     if (days) {
-      return `${days} day, ${hours} hours, ${minutes}, minutes`;
+      return `${days} day, ${hours} hours, ${minutes} minutes`;
     }
     else if (hours) {
       return `${hours} hours, ${minutes} minutes, ${seconds} seconds`;

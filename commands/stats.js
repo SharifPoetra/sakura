@@ -81,7 +81,7 @@ let guildsEval = await client.shard.broadcastEval('this.guilds.size')
 • ${percent.toFixed(2)}% CPU used
 • ${client.ws.ping.toFixed(2)} MS websocket
 `, true)
-  .addField('Sakura uptime', `up ${uptime}`, true) 
+  .addField('Uptime', `up ${uptime}`, true) 
   .addField('Server uptime', stdout, true) 
   .addField('Usefull Links', '**[Invite](https://discordapp.com/oauth2/authorize?client_id=500893309514940432&scope=bot&permissions=1517419646)** | **[Support server](https://discord.gg/BTckadf)** | **[Vote](https://discordbots.org/bot/500893309514940432/vote)**') 
   .setTimestamp()

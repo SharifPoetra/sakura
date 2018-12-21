@@ -4,7 +4,7 @@
   "description": "A simple discord music bot written in discord.js frameworks",
   "main": "shard.js",
   "scripts": {
-    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -20,25 +20,21 @@
   },
   "homepage": "https://github.com/SharifPoetra/sakura#readme",
   "dependencies": {
-    "@discordjs/uws": "^11.149.1",
-    "botlister": "^2.0.5",
+    "@discordjs/uws": "^10.149.0",
     "bufferutil": "^4.0.0",
     "cheerio": "^1.0.0-rc.2",
-    "cluster": "^0.7.7",
     "cpu-stat": "^2.0.1",
     "dblapi.js": "^2.3.0",
     "discord.js": "github:discordjs/discord.js",
     "dotenv": "^6.1.0",
-    "ffmpeg-binaries": "^4.0.0",
-    "fs": "0.0.1-security",
-    "genius-api": "^0.4.1",
+    "erlpack": "github:discordapp/erlpack",
+    "genius-api": "github:SharifPoetra/genius-api",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
     "node-opus": "^0.3.1",
     "node-superfetch": "^0.1.9",
-    "path": "^0.12.7",
-    "process-as-promised": "^1.0.1",
     "simple-youtube-api": "^5.1.1",
-    "ytdl-core": "^0.28.0"
+    "ytdl-core": "^0.28.0",
+    "zlib-sync": "^0.1.4"
   }
 }
