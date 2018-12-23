@@ -7,13 +7,19 @@ const path = require('path');
 const snek = require('node-superfetch');
 
 const client = new Client({
-  disabledEvents: [
-  "TYPING_START",
-  "USER_NOTE_UPDATE", 
-  "GUILD_MEMBERS_CHUNK", 
-  "MESSAGE_REACTION_ADD", 
-  "MESSAGE_REACTION_REMOVE_ALL", 
-  "MESSAGE_REACTION_REMOVE"
+	disabledEvents: [
+"CHANNEL_PINS_UPDATE", 
+"GUILD_BAN_ADD", 
+"GUILD_BAN_REMOVE",
+"RELATIONSHIP_ADD",
+"RELATIONSHIP_REMOVE",
+"TYPING_START",
+"USER_NOTE_UPDATE", 
+"USER_SETTINGS_UPDATE", 
+"GUILD_INTEGRATIONS_UPDATE", 
+"GUILD_MEMBERS_CHUNK", 
+"MESSAGE_REACTION_REMOVE_ALL",  
+"MESSAGE_REACTION_REMOVE"
 ],
   disableEveryone: true,
   fetchAllMembers: false
