@@ -34,7 +34,7 @@
     "node-opus": "^0.3.1",
     "node-superfetch": "^0.1.9",
     "simple-youtube-api": "^5.1.1",
-    "ytdl-core": "^0.28.0",
+    "ytdl-core": "^0.29.5",
     "zlib-sync": "^0.1.4"
   }
 }
