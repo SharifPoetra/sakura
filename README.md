@@ -1,6 +1,4 @@
-
 [![Discord](https://discordapp.com/api/guilds/492345609928572948/embed.png)](https://discord.gg/BTckadf)
-
 
 #markdown
 
@@ -11,8 +9,6 @@ Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
 **To check command usage, Type `s!help <commands>`**
 
 **Example: `s!help ping`**
-
-
 
 ## COMMAND LIST:
 
@@ -82,7 +78,7 @@ s!logging<br>
 s!welcomeimg<br>
 s!setprefix<br>
 ```
-	
+
 </details>
 <br>
 <details>
@@ -126,7 +122,7 @@ s!userinfo [@User]
 
 <br></br>
 
-# Licensing 
+# Licensing
 
 The bot is licensed under the MIT license. See the file [LICENSE](https://github.com/SharifPoetra/sakura/blob/master/LICENSE) for more information. If you plan to use any part of this source code in your own bot, I would be grateful if you would include some form of credit somewhere.
 
@@ -139,14 +135,14 @@ The bot is licensed under the MIT license. See the file [LICENSE](https://github
 [![Discord Bots](https://discordbots.org/api/widget/500893309514940432.svg?usernamecolor=4e17b5&topcolor=2d54ff&middlecolor=442b0&datacolor=f442e5&highlightcolor=424bf4&labelcolor=eff0f9)](https://discordbots.org/bot/500893309514940432)
 
 
-[![Bots for Discord](https://botsfordiscord.com/api/bot/500893309514940432/widget)](https://botsfordiscord.com/bots/500893309514940432) 
+[![Bots for Discord](https://botsfordiscord.com/api/bot/500893309514940432/widget)](https://botsfordiscord.com/bots/500893309514940432)
 
 
 <a href="https://discordbotlist.com/bots/500893309514940432">
-	<img 
-		width="380" 
-		height="140" 
-		src="https://discordbotlist.com/bots/500893309514940432/widget" 
+	<img
+		width="380"
+		height="140"
+		src="https://discordbotlist.com/bots/500893309514940432/widget"
 		alt="Sakura stats on Discord Bot List">
 </a>
 
@@ -154,3 +150,4 @@ The bot is licensed under the MIT license. See the file [LICENSE](https://github
   <img src="https://divinediscordbots.com/api/widget/500893309514940432.svg" alt="Sakura"/>
 </a>
 </div>
+```

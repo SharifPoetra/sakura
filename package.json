@@ -4,6 +4,7 @@
   "description": "A simple discord music bot written in discord.js frameworks",
   "main": "shard.js",
   "scripts": {
+    "start": "node shard.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
