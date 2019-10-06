@@ -1,21 +1,26 @@
-const { ShardingManager } = require('discord.js');
+const { ShardingManager } = require("discord.js");
 
-const Manager = new ShardingManager('./index.js', {
-  totalShards: 1, 
-  shardArgs: ['--ansi', '--color', '--trace-warnings'],
-  token: process.env.SECRET
+const Manager = new ShardingManager("./index.js", {
+  totalShards: 2,
+  token: process.env.TOKEN,
+  respawn: true
 });
 
-Manager.spawn(this.totalShard, 10000, true);
-Manager.on('launch', shard => {
-    console.log(`💎 Launch Shard ${shard.id} [${shard.id + 1}/${Manager.totalShards}]`);
+Manager.on("shardCreate", shard => {
+  console.log(`----- SHARD ${shard.id} LAUNCHED -----`);
+  shard
+    .on("death", () => console.log(`----- SHARD ${shard.id} DIED -----`))
+    .on("ready", () => console.log(`----- SHARD ${shard.id} READY -----`))
+    .on("disconnect", () =>
+      console.log(`----- SHARD ${shard.id} DISCONNECTED -----`)
+    )
+    .on("reconnecting", () =>
+      console.log(`----- SHARD ${shard.id} RECONNECTING -----`)
+    );
 });
 
-Manager.on('message', (shard, message) => {
-    console.log(`Shard[${shard.id}] : ${message._eval} : ${message._result}`);
-});
+Manager.spawn(this.totalShard, 5000, true);
 
-require('./server.js');
-
-process.on('unhandledRejection', e => console.error(e))
-.on('uncaughtException', e => console.error(e));
+process
+  .on("unhandledRejection", e => console.error(e))
+  .on("uncaughtException", e => console.error(e));
