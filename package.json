@@ -29,7 +29,7 @@
     "discord.js": "github:discordjs/discord.js",
     "dotenv": "^8.2.0",
     "erlpack": "github:discordapp/erlpack",
-    "genius-api": "github:SharifPoetra/genius-api",
+    "genius-api": "github:jahrlin/genius-api",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
     "node-opus": "^0.3.1",
