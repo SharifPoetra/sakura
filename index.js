@@ -133,7 +133,7 @@ client.on("message", async msg => {
     console.log(e.stack);
   } finally {
     console.log(
-      `${msg.author.tag} used ${command} in shard ${client.shard.id} and guild ${msg.guild.name} (${msg.guild.id})`
+      `${msg.author.tag} used ${command} in guild ${msg.guild.name} (${msg.guild.id})`
     );
   }
 });
@@ -154,7 +154,6 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     return undefined;
   }
   const serverQueue = client.queue.get(msg.guild.id);
-  //console.log(video)
   const song = {
     id: video.id,
     title: Util.escapeMarkdown(video.title),
@@ -218,7 +217,6 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
       return;
     }
     serverQueue.songs.push(song);
-    console.log(serverQueue.songs);
     if (playlist) return undefined;
 
     var adedembed = new MessageEmbed()
@@ -235,7 +233,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
         true
       )
       .addField(
-        "<:YouTubeicon:501663319128670209> Uploaded by:",
+        "Uploaded by:",
         `[${song.uploadedby}](${song.channelurl})`,
         true
       )
