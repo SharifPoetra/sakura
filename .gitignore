@@ -11,3 +11,4 @@ package-lock.json
 # miscs 
 .glitch-assets
 .lesshst
+watch.json

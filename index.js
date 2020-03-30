@@ -63,17 +63,6 @@ for (const cmd of client.commands) {
   }
 }
 
-// prefix stuff
-setInterval(async () => {
-  const { body } = await snek.get(
-    "https://haruno-sakura.glitch.me/api/server/prefix"
-  );
-  fs.writeFile("./prefixes.json", JSON.stringify(body, null, 2), err => {
-    if (err) return console.log(err);
-    return console.log("Received data from glitch prefix");
-  });
-}, 180000);
-
 client.on("warn", console.warn);
 
 client.on("error", error => console.log(error));
@@ -91,14 +80,7 @@ client.on("message", async msg => {
 
   if (!msg.guild || msg.author.bot) return;
 
-  let prefixes = JSON.parse(fs.readFileSync("./prefixes.json", "utf8"));
-
-  if (!prefixes[msg.guild.id]) {
-    prefixes[msg.guild.id] = {
-      prefix: "s!"
-    };
-  }
-  var prefix = prefixes[msg.guild.id].prefix;
+  var prefix = process.env.PREFIX;
 
   exports.prefix = prefix;
   if (!prefix || !msg.content.startsWith(prefix)) return undefined;
@@ -133,7 +115,7 @@ client.on("message", async msg => {
     console.log(e.stack);
   } finally {
     console.log(
-      `${msg.author.tag} used ${command} in shard ${client.shard.id} and guild ${msg.guild.name} (${msg.guild.id})`
+      `${msg.author.tag} used ${command} in guild ${msg.guild.name} (${msg.guild.id})`
     );
   }
 });
@@ -154,7 +136,6 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
     return undefined;
   }
   const serverQueue = client.queue.get(msg.guild.id);
-  //console.log(video)
   const song = {
     id: video.id,
     title: Util.escapeMarkdown(video.title),
@@ -218,7 +199,6 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
       return;
     }
     serverQueue.songs.push(song);
-    console.log(serverQueue.songs);
     if (playlist) return undefined;
 
     var adedembed = new MessageEmbed()
@@ -235,7 +215,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
         true
       )
       .addField(
-        "<:YouTubeicon:501663319128670209> Uploaded by:",
+        "Uploaded by:",
         `[${song.uploadedby}](${song.channelurl})`,
         true
       )
@@ -260,7 +240,6 @@ function play(guild, song, msg) {
     client.queue.delete(guild.id);
     return;
   }
-  console.log(serverQueue.songs);
 
   const dispatcher = serverQueue.connection
     .play(ytdl(song.url, { quality: "highestaudio" }))

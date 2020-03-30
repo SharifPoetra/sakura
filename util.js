@@ -70,27 +70,6 @@ class Util {
     }
     return `${seconds} seconds`;
   }
-  static trimArray(array, length = 10) {
-    const len = array.length - length;
-    const temp = array.slice(0, length);
-    temp.push(`...${len} more.`);
-    return temp;
-  }
-  static silhouette(ctx, x, y, width, height) {
-    const data = ctx.getImageData(x, y, width, height);
-    for (let i = 0; i < data.data.length; i += 4) {
-      data.data[i] = 0;
-      data.data[i + 1] = 0;
-      data.data[i + 2] = 0;
-    }
-    ctx.putImageData(data, x, y);
-    return ctx;
-  }
-  static decodeHtmlEntities(text) {
-    return text.replace(/&#(\d+);/g, (rep, code) => {
-      return String.frrmCharCode(code);
-    });
-  }
 }
 
 module.exports = Util;

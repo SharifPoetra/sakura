@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const snek = require("node-superfetch");
 const { load } = require("cheerio");
 const api = require("genius-api");
-const genius = new api(process.env.GENIUS);
+const genius = new api(process.env.GENIUS_KEY);
 
 exports.run = async (client, msg, args) => {
   if (!args[1])
