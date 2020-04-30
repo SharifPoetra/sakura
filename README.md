@@ -1,7 +1,5 @@
 [![Discord](https://discordapp.com/api/guilds/492345609928572948/embed.png)](https://discord.gg/BTckadf)
 
-#markdown
-
 24/7 Music bot and using discord.js as the library. Please support sakura by voting to improve this bot to be better.
 
 Don't know the prefix? Just mention **@Sakura** and you will get the prefix.
