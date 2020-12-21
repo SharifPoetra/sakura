@@ -31,7 +31,7 @@
     "moment-duration-format": "^2.2.2",
     "node-superfetch": "^0.1.10",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^3.1.2",
+    "ytdl-core": "^4.2.1",
     "@discordjs/opus": "^0.3.2"
   },
   "engines": {
