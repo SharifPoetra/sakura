@@ -32,7 +32,7 @@
     "node-superfetch": "^0.1.10",
     "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^4.4.1",
-    "@discordjs/opus": "^0.3.2"
+    "@discordjs/opus": "^0.4.0"
   },
   "engines": {
     "node": "12.x"
