@@ -29,7 +29,7 @@
     "genius-api": "github:jahrlin/genius-api",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
-    "node-superfetch": "^0.1.10",
+    "node-superfetch": "^0.2.2",
     "simple-youtube-api": "^5.2.1",
     "ytdl-core": "^4.4.1",
     "@discordjs/opus": "^0.3.2"
