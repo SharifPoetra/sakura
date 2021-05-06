@@ -25,7 +25,7 @@
     "cpu-stat": "^2.0.1",
     "dblapi.js": "^2.4.0",
     "discord.js": "github:discordjs/discord.js",
-    "dotenv": "^8.2.0",
+    "dotenv": "^9.0.0",
     "genius-api": "github:jahrlin/genius-api",
     "moment": "^2.24.0",
     "moment-duration-format": "^2.2.2",
